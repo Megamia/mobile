@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 const Screen3 = () => {
   return (
     <View>
-      <Text>Đã bảo rồi</Text>
+      <Text>Đã bảo rồii</Text>
     </View>
   );
 };
