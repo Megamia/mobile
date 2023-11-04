@@ -6,6 +6,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 // import Bot from './Components/Nav/Bot';
 import Home from './Components/Home/Home';
+import Top from './Components/Home/Top';
+import Bot from './Components/Home/Bot';
 // const Stack = createStackNavigator();
 
 export default function App() {
@@ -23,7 +25,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'blue',
     alignItems: 'center',
     justifyContent: 'center',
   },

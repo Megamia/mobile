@@ -1,10 +1,16 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet,ScrollView } from 'react-native';
 
 const Screen1 = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Đừng sang</Text>
+      <ScrollView style={styles.a}>
+        <View style={styles.b}>
+
+        </View>
+        <Text style={styles.text}>abc</Text>
+
+      </ScrollView>
     </View>
   );
 };
@@ -14,12 +20,21 @@ const styles = StyleSheet.create({
     // flex: 1,
     // flexDirection: 'column',
     // alignItems: 'center',
-    // position:'relative',
+    position:'absolute',
+    top:0,
     // bottom:0
   },
   text:{
-    // fontSize: 30,
-    // color:'red'
+    fontSize: 30,
+    color:'white'
+  },
+  a:{
+    height:3000,
+    backgroundColor:'blue'
+  },
+  b:{
+    height:50,
+    backgroundColor:'red'
   }
 })
 export default Screen1;
