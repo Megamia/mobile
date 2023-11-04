@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Keyboard, KeyboardAvoidingView } from 'react-native';
-
+import React from 'react';
+import { View, TextInput, StyleSheet } from 'react-native';
 const Search = () => {
 
   return (
     <View style={styles.container}>
-      <KeyboardAvoidingView style={styles.container} behavior="padding">
-        <View style={styles.search}>
-          <TextInput
-            style={styles.textInput}
-            placeholder="Tìm kiếm"
-          />
-        </View>
-      </KeyboardAvoidingView>
+      <View style={styles.search}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Tìm kiếm"
+        />
+      </View>
     </View>
   );
 };
@@ -38,7 +35,7 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     height: 40,
-    
+
   },
 });
 

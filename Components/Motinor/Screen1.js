@@ -1,40 +1,30 @@
 import React from 'react';
-import { View, Text, StyleSheet,ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
-const Screen1 = () => {
+const Screen1 = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <ScrollView style={styles.a}>
-        <View style={styles.b}>
-
-        </View>
-        <Text style={styles.text}>abc</Text>
-
-      </ScrollView>
-    </View>
+    <ScrollView style={styles.container}>
+      <View style={styles.content}>
+        <Text>This is Screen 1</Text>
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // flexDirection: 'column',
-    // alignItems: 'center',
-    position:'absolute',
-    top:0,
-    // bottom:0
+    flex: 1,
+    backgroundColor: 'white',
   },
-  text:{
+  text: {
     fontSize: 30,
-    color:'white'
+    color: 'blue',
+    marginTop: 20,
+    alignSelf: 'center',
   },
-  a:{
-    height:3000,
-    backgroundColor:'blue'
+  content: {
+    padding: 20,
   },
-  b:{
-    height:50,
-    backgroundColor:'red'
-  }
-})
+});
+
 export default Screen1;

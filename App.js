@@ -3,12 +3,14 @@ import { StyleSheet, View } from 'react-native';
 // import Home from './Components/Home/Home';
 // import User from './Components/User/User';
 import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
 // import Bot from './Components/Nav/Bot';
 import Home from './Components/Home/Home';
 import Top from './Components/Home/Top';
+import Screen1 from './Components/Motinor/Screen1';
 import Bot from './Components/Home/Bot';
 // const Stack = createStackNavigator();
+import { NavigationContainer } from '@react-navigation/native';
+import TabNavigationBOT from './Components/TabNavigationBOT ';
 
 export default function App() {
   return (
@@ -18,7 +20,9 @@ export default function App() {
     //     <Stack.Screen name="User" component={User} />
     //   </Stack.Navigator>
     // </NavigationContainer>
-    <Home/>
+    <NavigationContainer>
+      <TabNavigationBOT />
+    </NavigationContainer>
   );
 }
 
