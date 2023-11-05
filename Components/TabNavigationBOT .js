@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, FontAwesome5, MaterialCommunityIcons, Feather,Ionicons } from 'react-native-vector-icons';
-import Screen1 from './Motinor/Screen1';
-import Screen2 from './Discover/Screen2';
-import Screen3 from './Browser/Screen3';
+import Motinor from './Motinor/Motinor';
+import Discover from './Discover/Discover';
+import Browser from './Browser/Browser';
 import Search from './Search/Search';
 
 const Tab = createBottomTabNavigator();
@@ -38,15 +38,15 @@ const TabNavigationBOT = () => {
     tabBarStyle: {
       height: 80,
       backgroundColor: '#0E0E10',
-      borderTopWidth: 1,
+      borderTopColor: '#242426',
     },
   });
 
   return (
     <Tab.Navigator screenOptions={screenOptions}>
-      <Tab.Screen name="Theo dõi" component={Screen1} options={{ headerShown: false }} />
-      <Tab.Screen name="Khám phá" component={Screen2} options={{ headerShown: false }} />
-      <Tab.Screen name="Duyệt" component={Screen3} options={{ headerShown: false }} />
+      <Tab.Screen name="Theo dõi" component={Motinor} options={{ headerShown: false }} />
+      <Tab.Screen name="Khám phá" component={Discover} options={{ headerShown: false }} />
+      <Tab.Screen name="Duyệt" component={Browser} options={{ headerShown: false }} />
       <Tab.Screen name="Tìm kiếm" component={Search} options={{ headerShown: false }} />
     </Tab.Navigator>
   );

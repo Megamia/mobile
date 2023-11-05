@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const Screen3 = () => {
+const Dienmao = () => {
   return (
     <View>
-      <Text>Đã bảo rồii</Text>
+      <Text>Hello, world!</Text>
     </View>
   );
 };
 
-export default Screen3;
+export default Dienmao;
