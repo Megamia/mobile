@@ -1,35 +1,45 @@
-import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { AntDesign } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
+import { View, Button, Modal, StyleSheet } from 'react-native';
 
-const Bot = () => {
-  const navigation = useNavigation();
+const Screen1 = ({ navigation }) => {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const openScreen2 = () => {
+    setModalVisible(true);
+  };
+
   return (
     <View style={styles.container}>
-      <View style={styles.viewcon}>
-        <TouchableOpacity onPress={() => navigation.navigate('User')}>
-          <AntDesign name="heart" size={24} color="black" />
-          <Text>Theo dõi</Text>
-        </TouchableOpacity>
-      </View>
+      {/* Nội dung của screen1 */}
+      <Button title="Mở screen2" onPress={openScreen2} />
+
+      <Modal
+        visible={modalVisible}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.modalContainer}>
+          {/* Nội dung của screen2 */}
+          <Button title="Đóng" onPress={() => setModalVisible(false)} />
+        </View>
+      </Modal>
     </View>
   );
 };
 
-export default Bot;
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
-    position: 'relative',
-  },
-  viewcon: {
-    alignItems: 'center',
     justifyContent: 'center',
-    position: 'absolute',
-    bottom: 20,
-    right: 20,
+    alignItems: 'center',
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
 });
+
+export default Screen1;

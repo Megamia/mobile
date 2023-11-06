@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import Top from '../Home/Top';
+import NavTOP from '../Home/NavTop';
 
 const Motinor = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Top />
+        <NavTOP />
       </View>
       <ScrollView style={styles.scrollView} stickyHeaderIndices={[1, 3, 5]}>
         <View style={styles.main}>
@@ -61,6 +61,39 @@ const Motinor = ({ navigation }) => {
             </View>
           </View>
           
+          <View style={styles.contentL}>
+            <View style={styles.title}>
+              <Text style={styles.text}>Screen Theo dõi</Text>
+            </View>
+            <View style={styles.contentS}>
+              <Text style={styles.text}>
+                abc
+              </Text>
+              <Text style={styles.text}>
+                abc
+              </Text>
+              <Text style={styles.text}>
+                abc
+              </Text>
+            </View>
+          </View>
+
+          <View style={styles.contentL}>
+            <View style={styles.title}>
+              <Text style={styles.text}>Screen Theo dõi</Text>
+            </View>
+            <View style={styles.contentS}>
+              <Text style={styles.text}>
+                abc
+              </Text>
+              <Text style={styles.text}>
+                abc
+              </Text>
+              <Text style={styles.text}>
+                abc
+              </Text>
+            </View>
+          </View>
         </View>
       </ScrollView>
     </View>

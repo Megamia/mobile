@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, StyleSheet, FlatList, Text, TouchableOpacity } from 'react-native';
+import { Octicons } from '@expo/vector-icons';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -10,7 +11,7 @@ const Search = () => {
     if (searchTerm.trim() !== '') {
       setSearchHistory(prevHistory => {
         if (prevHistory[0] === 'Tìm kiếm gần đây') {
-          return [searchTerm];
+          return [...prevHistory, searchTerm];
         } else {
           return [searchTerm, ...prevHistory];
         }
@@ -24,7 +25,7 @@ const Search = () => {
     if (searchTerm.trim() !== '') {
       setSearchHistory(prevHistory => {
         if (prevHistory[0] === 'Tìm kiếm gần đây') {
-          return [searchTerm];
+          return [...prevHistory, searchTerm];
         } else {
           return [searchTerm, ...prevHistory];
         }
@@ -71,10 +72,13 @@ const Search = () => {
           data={searchHistory}
           renderItem={({ item, index }) => (
             <View style={styles.historyItemContainer}>
+              {item !== 'Tìm kiếm gần đây' && (
+              <Octicons style={styles.icon} name="history" size={23} color="gray" />
+              )}
               <Text style={styles.historyItem}>{item}</Text>
               {item !== 'Tìm kiếm gần đây' && (
                 <TouchableOpacity onPress={() => removeSearchTerm(index)}>
-                  <Text style={styles.removeButton}>X</Text>
+                  <Text style={styles.removeButton}>x</Text>
                 </TouchableOpacity>
               )}
             </View>
@@ -93,7 +97,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   search: {
-    marginTop: 35,
+    marginTop: 55,
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
@@ -105,7 +109,8 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 40,
     color: '#ACABB3',
-    marginLeft: 5,
+    marginLeft: 15,
+    fontSize: 17
   },
   placeholder: {
     color: '#ACABB3',
@@ -113,43 +118,52 @@ const styles = StyleSheet.create({
   column: {
     flex: 1,
     backgroundColor: '#0E0E10',
+    justifyContent:'center',
     alignSelf: 'stretch',
     marginHorizontal: 10,
   },
   FlatList: {
-    marginTop: 35,
+    marginTop: 15,
+    marginHorizontal: 5,
   },
   historyItemContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    
   },
   historyItem: {
     flex: 1,
     fontSize: 16,
     marginBottom: 8,
     color: '#ACABB3',
+    
   },
   removeButton: {
     color: '#ACABB3',
     fontSize: 16,
     marginBottom: 8,
+    marginRight: 10
+  },
+  icon:{
+    marginBottom: 4,
+    color: '#ACABB3',
     marginRight:10
   },
   clearButton: {
     color: 'white',
     fontSize: 16,
-    alignItems:'center',
+    alignItems: 'center',
   },
   viewSearchTerm: {
     backgroundColor: 'gray',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 5,
-    marginRight:10
+    marginRight: 10
   },
   circularView: {
-borderRadius: 80,
+    borderRadius: 80,
   },
 });
 

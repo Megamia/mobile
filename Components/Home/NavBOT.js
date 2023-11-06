@@ -2,14 +2,14 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, FontAwesome5, MaterialCommunityIcons, Feather,Ionicons } from 'react-native-vector-icons';
-import Motinor from './Motinor/Motinor';
-import Discover from './Discover/Discover';
-import Browser from './Browser/Browser';
-import Search from './Search/Search';
+import Motinor from '../Motinor/Motinor';
+import Discover from '../Discover/Discover';
+import Browser from '../Browser/Browser';
+import Search from '../Search/Search';
 
 const Tab = createBottomTabNavigator();
 
-const TabNavigationBOT = () => {
+const NavBOT = () => {
   const screenOptions = ({ route }) => ({
     tabBarIcon: ({ color, size, focused }) => {
       let iconComponent;
@@ -26,14 +26,12 @@ const TabNavigationBOT = () => {
       } else if (route.name === 'Tìm kiếm') {
         iconComponent = <Feather name="search" size={size} color={color} />;
       }
-      
       return iconComponent;
     },
     tabBarActiveTintColor: '#C193FF',
     tabBarInactiveTintColor: '#888',
     tabBarLabelStyle: {
       fontSize: 12,
-      paddingBottom: 10,
     },
     tabBarStyle: {
       height: 80,
@@ -53,6 +51,5 @@ const TabNavigationBOT = () => {
 };
 
 const styles=StyleSheet.create({
-  
 })
-export default TabNavigationBOT;
+export default NavBOT;

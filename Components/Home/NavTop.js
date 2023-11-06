@@ -3,11 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Entypo, Feather, AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Account from '../User/Account';
 
 const Stack = createStackNavigator();
 
-const Top = () => {
+const NavTOP = () => {
     const navigation = useNavigation();
 
     return (
@@ -26,13 +25,13 @@ const Top = () => {
                 <TouchableOpacity onPress={() => navigation.navigate('Chualam')} style={styles.icon}>
                     <Feather name="message-square" size={24} color="white" />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Chualam')} style={styles.icon}>
+                <TouchableOpacity onPress={() => navigation.navigate('Notification')} style={styles.icon}>
                     <AntDesign name="inbox" size={24} color="white" />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.navigate('Chualam')} style={[styles.c, styles.icon]}>
+                {/* <TouchableOpacity onPress={() => navigation.navigate('Chualam')} style={[styles.c, styles.icon]}>
                     <Feather name="radio" size={24} color="white" />
                     <Text style={styles.text}>Tạo</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
         </View>
     );
@@ -45,7 +44,6 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         justifyContent: 'flex-end',
         backgroundColor: 'rgba(14,14,16, 0.9)',
-
     },
     text: {
         fontSize: 20,
@@ -64,7 +62,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         position: 'absolute',
         flexDirection: 'row',
-        height: 50
+        height: 50,
     },
     c: {
         flexDirection: 'row',
@@ -76,8 +74,7 @@ const styles = StyleSheet.create({
         height: 40
     },
     icon: {
-        marginLeft: 10,
-        marginRight: 10,
+        marginHorizontal:15,
     },
     iconContainer: {
         backgroundColor: '#8304B2',
@@ -86,4 +83,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Top;
+export default NavTOP;

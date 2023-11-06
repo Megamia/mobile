@@ -29,70 +29,73 @@ const Account = () => {
           </Text>
         </View>
 
-        <View style={styles.channel}>
-          <View style={styles.iconContainer1}>
-            <Entypo name="video-camera" size={24} color="white" />
-          </View>
-          <Text style={styles.text1}>
-            Kênh của tôi
-          </Text>
-        </View>
-
-        <View style={styles.anothertop}>
-          <View style={styles.iconContainer1}>
-            <AntDesign name="staro" size={24} color="white" />
-          </View>
-          <Text style={styles.text1}>
-            Gói đăng ký theo dõi
-          </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+          <View style={styles.channel}>
             <View style={styles.iconContainer1}>
-              <AntDesign name="right" size={24} color="white" />
+              <Entypo name="video-camera" size={24} color="white" />
             </View>
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.anothermid}>
-          <View style={styles.iconContainer1}>
-            <Feather name="gift" size={24} color="white" />
+            <Text style={styles.text1}>
+              Kênh của tôi
+            </Text>
           </View>
-          <Text style={styles.text1}>
-            Quà tặng & phần thưởng
-          </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
-            <View style={styles.iconContainer1}>
-              <AntDesign name="right" size={24} color="white" />
-            </View>
-          </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
 
-        <View style={styles.anothermid}>
-          <View style={styles.iconContainer1}>
-            <Ionicons name="ios-settings-outline" size={24} color="white" />
-          </View>
-          <Text style={styles.text1}>
-            Cài đặt
-          </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+          <View style={styles.anothertop}>
             <View style={styles.iconContainer1}>
-              <AntDesign name="right" size={24} color="white" />
+              <AntDesign name="staro" size={24} color="white" />
             </View>
-          </TouchableOpacity>
-        </View>
+            <Text style={styles.text1}>
+              Gói đăng ký theo dõi
+            </Text>
+            <View style={styles.icon}>
+              <AntDesign name="right" size={20} color="white" />
+            </View>
+          </View>
+        </TouchableOpacity>
 
-        <View style={styles.anotherbot}>
-          <View style={styles.iconContainer1}>
-            <Feather name="moon" size={24} color="white" />
-          </View>
-          <Text style={styles.text1}>
-            Diện mạo
-          </Text>
-          <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+          <View style={styles.anothermid}>
             <View style={styles.iconContainer1}>
-              <AntDesign name="right" size={24} color="white" />
+              <Feather name="gift" size={24} color="white" />
             </View>
-          </TouchableOpacity>
-        </View>
+            <Text style={styles.text1}>
+              Quà tặng & phần thưởng
+            </Text>
+            <View style={styles.icon}>
+              <AntDesign name="right" size={20} color="white" />
+            </View>
+          </View>
+
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+          <View style={styles.anothermid}>
+            <View style={styles.iconContainer1}>
+              <Ionicons name="ios-settings-outline" size={24} color="white" />
+            </View>
+            <Text style={styles.text1}>
+              Cài đặt
+            </Text>
+            <View style={styles.icon}>
+              <AntDesign name="right" size={20} color="white" />
+            </View>
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+          <View style={styles.anotherbot}>
+            <View style={styles.iconContainer1}>
+              <Feather name="moon" size={24} color="white" />
+            </View>
+            <Text style={styles.text1}>
+              Diện mạo
+            </Text>
+            <View style={styles.icon}>
+              <AntDesign name="right" size={20} color="white" />
+            </View>
+          </View>
+        </TouchableOpacity>
       </View>
 
     </View>
@@ -157,10 +160,11 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   text1: {
+    flex:1,
     fontSize: 20,
     fontWeight: 'bold',
     color: 'white',
-    marginLeft: 20
+    marginLeft: 10,
   },
   iconContainer1: {
     paddingLeft: 30,
@@ -202,7 +206,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
+    justifyContent:'space-between'
   },
+  icon: {
+justifyContent:'flex-end',
+marginRight:20,
+  }
 });
 
 export default Account;
