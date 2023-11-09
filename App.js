@@ -10,6 +10,8 @@ import Notification from './Components/Home/Notification/Notification';
 import NotificationST from './Components/Home/Notification/NotificationST';
 import Screen1 from './Components(test)/Nav/Bot';
 import NavBOT from './Components/Home/NavBOT';
+import Login from './Components/Account/Login';
+import Motinor from './Components/Motinor/Motinor';
 
 const Stack = createStackNavigator();
 
@@ -17,7 +19,8 @@ export default function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={NavBOT} options={{headerShown:false}}/>
+        <Stack.Screen name="Main" component={Login} options={{headerShown:false}}/>
+        <Stack.Screen name="NavBOT" component={NavBOT} options={{headerShown:false}}/>
         <Stack.Screen name="Account" component={Account} options={{headerShown:false}}/>
         <Stack.Screen name="Chualam" component={Chualam} options={{headerShown:false}}/>
         <Stack.Screen name="Notification" component={Notification} options={{headerShown:false}}/>
