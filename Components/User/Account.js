@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const Account = () => {
   const navigation = useNavigation();
-  const handleGoDone = () => {
+  const handleDone = () => {
     navigation.goBack();
   };
 
@@ -15,7 +15,7 @@ const Account = () => {
 
         <View style={styles.account}>
           <Text style={styles.text}>Tài khoản</Text>
-          <TouchableOpacity style={styles.button} onPress={handleGoDone}>
+          <TouchableOpacity style={styles.button} onPress={handleDone}>
             <Text style={styles.buttonText}>Xong</Text>
           </TouchableOpacity>
         </View>
@@ -29,7 +29,7 @@ const Account = () => {
           </Text>
         </View>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Mychannel')}>
           <View style={styles.channel}>
             <View style={styles.iconContainer1}>
               <Entypo name="video-camera" size={24} color="white" />
@@ -83,7 +83,7 @@ const Account = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
           <View style={styles.anotherbot}>
             <View style={styles.iconContainer1}>
               <Feather name="moon" size={24} color="white" />
@@ -95,7 +95,7 @@ const Account = () => {
               <AntDesign name="right" size={20} color="white" />
             </View>
           </View>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
 
     </View>

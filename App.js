@@ -12,6 +12,8 @@ import Screen1 from './Components(test)/Nav/Bot';
 import NavBOT from './Components/Home/NavBOT';
 import Login from './Components/Account/Login';
 import Motinor from './Components/Motinor/Motinor';
+import Profile from './Components/User/Profile';
+import Mychannel from './Components/User/Mychannel';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +27,8 @@ export default function App() {
         <Stack.Screen name="Chualam" component={Chualam} options={{headerShown:false}}/>
         <Stack.Screen name="Notification" component={Notification} options={{headerShown:false}}/>
         <Stack.Screen name="NotificationST" component={NotificationST} options={{headerShown:false}}/>
+        <Stack.Screen name="Profile" component={Profile} options={{headerShown:false}}/>
+        <Stack.Screen name="Mychannel" component={Mychannel} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -13,14 +13,14 @@ const Notification = () => {
         <View style={styles.container}>
             <View style={styles.head}>
                 <TouchableOpacity style={styles.iconL} onPress={handleBack}>
-                <AntDesign name="left" size={20} color="white" />
-            </TouchableOpacity>
-            <Text style={styles.text}>Thông báo</Text>
-            <TouchableOpacity style={styles.iconR} onPress={() => navigation.navigate('NotificationST')}>
-                <Ionicons name="ios-settings-outline" size={24} color="white" />
-            </TouchableOpacity>
+                    <AntDesign name="left" size={20} color="white" />
+                </TouchableOpacity>
+                <Text style={styles.text}>Thông báo</Text>
+                <TouchableOpacity style={styles.iconR} onPress={() => navigation.navigate('NotificationST')}>
+                    <Ionicons name="ios-settings-outline" size={24} color="white" />
+                </TouchableOpacity>
             </View>
-            
+
         </View>
     );
 };
@@ -29,21 +29,21 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#0E0E10',
     },
-    head:{
-        marginTop:55,
+    head: {
+        marginTop: 55,
         justifyContent: 'space-between',
         flexDirection: 'row',
     },
     text: {
         fontSize: 23,
         color: 'white',
-        marginLeft:10
+        marginLeft: 10
     },
-    iconL:{
-        marginLeft:10,
+    iconL: {
+        marginLeft: 10,
     },
-    iconR:{
-        marginRight:20,
+    iconR: {
+        marginRight: 20,
     },
     button: {
         // backgroundColor: 'blue',
