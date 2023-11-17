@@ -1,81 +1,80 @@
-import React, { useState } from 'react';
-import { View, Button, TextInput, StyleSheet } from 'react-native';
-import MSSQL from 'react-native-mssql';
+// import React, { useState } from 'react';
+// import { View, Button, TextInput, StyleSheet, Alert } from 'react-native';
+// import sql from 'mssql';
 
-const Login = ({ navigation }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+// const Login = ({ navigation }) => {
+//   const [username, setUsername] = useState('');
+//   const [password, setPassword] = useState('');
 
-  const handleLogin = async () => {
-    try {
-      // Kết nối với cơ sở dữ liệu SQL Server
-      MSSQL.init();
-      await MSSQL.connect({
-        server: 'DESKTOP-CS1SKJJ\\SQLEXPRESS', 
-        database: 'Mobile', // Tên cơ sở dữ liệu
-        options: {
-          encrypt: true, // Sử dụng mã hóa kết nối
-        },
-      });
+//   const handleLogin = () => {
+//     const config = {
+//       server: 'DESKTOP-CS1SKJJ\\SQLEXPRESS',
+//       port: '1433',
+//       database: 'mobile',
+//       user: 'sa',
+//       password: 'sa',
+//     };
 
-      // Thực hiện truy vấn SQL để kiểm tra tài khoản
-      const query = `SELECT * FROM Account WHERE username = '${username}' AND password = '${password}'`;
-      const result = await MSSQL.executeQuery(query);
+//     const pool = new sql.ConnectionPool(config);
 
-      // Kiểm tra kết quả truy vấn
-      if (result.length > 0) {
-        // Tài khoản hợp lệ, chuyển đến màn hình Account
-        navigation.navigate('NavBOT');
-      } else {
-        // Tài khoản không hợp lệ, xử lý logic tương ứng
-      }
+//     pool.connect().then(() => {
+//       console.log('Connected to SQL Server');
 
-      // Đóng kết nối SQL Server
-      await MSSQL.close();
-    } catch (error) {
-      console.error('Error connecting to SQL Server:', error);
-    }
-  };
+//       const request = new sql.Request(pool);
+//       const query = `SELECT * FROM Account WHERE username='${username}' AND password='${password}'`;
 
-  return (
-    <View style={styles.container}>
-      {/* Các trường đăng nhập */}
-      <TextInput
-        style={styles.username}
-        placeholder="Username"
-        value={username}
-        onChangeText={(text) => setUsername(text)}
-      />
-      <TextInput
-        style={styles.password}
-        placeholder="Password"
-        secureTextEntry
-        value={password}
-        onChangeText={(text) => setPassword(text)}
-      />
+//       request.query(query).then((result) => {
+//         if (result.recordset.length > 0) {
+//           Alert.alert('Thành công', 'Đăng nhập thành công');
+//           navigation.navigate('NavBOT');
+//         } else {
+//           Alert.alert('Lỗi', 'Tên người dùng hoặc mật khẩu không chính xác');
+//         }
+//       }).catch((err) => {
+//         console.error('Error executing query:', err);
+//       });
+//     }).catch((err) => {
+//       console.error('Error connecting to SQL Server:', err);
+//     });
+//   };
 
-      {/* Nút đăng nhập */}
-      <Button title="Đăng nhập" onPress={handleLogin} />
-    </View>
-  );
-};
+//   return (
+//     <View style={styles.container}>
+//       <TextInput
+//         style={styles.username}
+//         placeholder="Username"
+//         value={username}
+//         onChangeText={(text) => setUsername(text)}
+//       />
+//       <TextInput
+//         style={styles.password}
+//         placeholder="Password"
+//         secureTextEntry
+//         value={password}
+//         onChangeText={(text) => setPassword(text)}
+//       />
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  username: {
-    borderColor: 'red',
-    borderWidth: 2,
-    height: 50,
-  },
-  password: {
-    borderColor: 'blue',
-    borderWidth: 2,
-    height: 50,
-  },
-});
+//       <Button title="Đăng nhập" onPress={handleLogin} />
+//     </View>
+//   );
+// };
 
-export default Login;
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//   },
+//   username: {
+//     borderColor: 'red',
+//     borderWidth: 2,
+//     height: 50,
+//   },
+//   password: {
+//     borderColor: 'blue',
+//     borderWidth: 2,
+//     height: 50,
+//   },
+// });
+
+// export default Login;

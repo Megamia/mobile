@@ -19,8 +19,8 @@ export default function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={Login} options={{headerShown:false}}/>
-        <Stack.Screen name="NavBOT" component={NavBOT} options={{headerShown:false}}/>
+        {/* <Stack.Screen name="Main" component={Login} options={{headerShown:false}}/> */}
+        <Stack.Screen name="Main" component={NavBOT} options={{headerShown:false}}/>
         <Stack.Screen name="Account" component={Account} options={{headerShown:false}}/>
         <Stack.Screen name="Chualam" component={Chualam} options={{headerShown:false}}/>
         <Stack.Screen name="Notification" component={Notification} options={{headerShown:false}}/>
