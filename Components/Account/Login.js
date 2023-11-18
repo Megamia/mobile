@@ -1,80 +1,215 @@
-// import React, { useState } from 'react';
-// import { View, Button, TextInput, StyleSheet, Alert } from 'react-native';
-// import sql from 'mssql';
+import React, { useState, useEffect } from 'react';
+import { View, TextInput, Alert, StyleSheet, Text, TouchableOpacity, Keyboard, Animated } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+const Login = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [secureTextEntry, setSecureTextEntry] = useState(true);
+    const [animatedValue] = useState(new Animated.Value(0));
 
-// const Login = ({ navigation }) => {
-//   const [username, setUsername] = useState('');
-//   const [password, setPassword] = useState('');
+    const navigation = useNavigation();
+    const handleDone = () => {
+        navigation.goBack();
+    };
+    const [isFocused, setIsFocused] = useState('');
+    const handleFocus = (input) => {
+        if (input === 'username') {
+            setIsFocused('username');
+        } else if (input === 'password') {
+            setIsFocused('password');
+        }
+    };
 
-//   const handleLogin = () => {
-//     const config = {
-//       server: 'DESKTOP-CS1SKJJ\\SQLEXPRESS',
-//       port: '1433',
-//       database: 'mobile',
-//       user: 'sa',
-//       password: 'sa',
-//     };
+    const handleBlur = () => {
+        setIsFocused('');
+    };
 
-//     const pool = new sql.ConnectionPool(config);
+    const handleLogin = () => {
+        if (username === 'admin' && password === '123') {
+            Alert.alert('Đăng nhập thành công');
+            navigation.navigate('NavBOT');
+        } else {
+            Alert.alert('Đăng nhập thất bại');
+        }
+    };
+    const toggleSecureTextEntry = () => {
+        setSecureTextEntry(!secureTextEntry);
+    };
 
-//     pool.connect().then(() => {
-//       console.log('Connected to SQL Server');
+    useEffect(() => {
+        const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', () => {
+            Animated.timing(animatedValue, {
+                toValue: -100,
+                duration: 200,
+                useNativeDriver: true,
+            }).start();
+        });
 
-//       const request = new sql.Request(pool);
-//       const query = `SELECT * FROM Account WHERE username='${username}' AND password='${password}'`;
+        const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', () => {
+            Animated.timing(animatedValue, {
+                toValue: 0,
+                duration: 180,
+                useNativeDriver: true,
+            }).start();
+        });
 
-//       request.query(query).then((result) => {
-//         if (result.recordset.length > 0) {
-//           Alert.alert('Thành công', 'Đăng nhập thành công');
-//           navigation.navigate('NavBOT');
-//         } else {
-//           Alert.alert('Lỗi', 'Tên người dùng hoặc mật khẩu không chính xác');
-//         }
-//       }).catch((err) => {
-//         console.error('Error executing query:', err);
-//       });
-//     }).catch((err) => {
-//       console.error('Error connecting to SQL Server:', err);
-//     });
-//   };
+        return () => {
+            keyboardDidShowListener.remove();
+            keyboardDidHideListener.remove();
+        };
+    }, [animatedValue]);
 
-//   return (
-//     <View style={styles.container}>
-//       <TextInput
-//         style={styles.username}
-//         placeholder="Username"
-//         value={username}
-//         onChangeText={(text) => setUsername(text)}
-//       />
-//       <TextInput
-//         style={styles.password}
-//         placeholder="Password"
-//         secureTextEntry
-//         value={password}
-//         onChangeText={(text) => setPassword(text)}
-//       />
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
-//       <Button title="Đăng nhập" onPress={handleLogin} />
-//     </View>
-//   );
-// };
+    const handleUsernameChange = (text) => {
+        setUsername(text);
+        setIsButtonDisabled(text === '' || password === '');
+    };
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-//   username: {
-//     borderColor: 'red',
-//     borderWidth: 2,
-//     height: 50,
-//   },
-//   password: {
-//     borderColor: 'blue',
-//     borderWidth: 2,
-//     height: 50,
-//   },
-// });
+    const handlePasswordChange = (text) => {
+        setPassword(text);
+        setIsButtonDisabled(username === '' || text === '');
+    };
 
-// export default Login;
+    useEffect(() => {
+        const backgroundColor = isButtonDisabled ? 'gray' : '#C193FF';
+        styles.viewbtn.backgroundColor = backgroundColor;
+      }, [isButtonDisabled]);
+
+    return (
+        <View style={styles.container}>
+            <View style={styles.viewtitle}>
+                <Text style={styles.title}>
+                    Đăng nhập
+                </Text>
+            </View>
+            <KeyboardAwareScrollView contentContainerStyle={styles.contentContainer}>
+                <Animated.View style={[styles.viewform, { transform: [{ translateY: animatedValue }] }]}>
+                    <View style={styles.form}>
+                        <Text style={styles.text}>
+                            Tên người dùng
+                        </Text>
+                        <TextInput
+                            style={[styles.textinput, isFocused === 'username' && styles.formFocused]}
+                            value={username}
+                            onChangeText={handleUsernameChange}
+                            onFocus={() => handleFocus('username')}
+                            onBlur={handleBlur}
+                            selectionColor={'#C193FF'}
+                            keyboardAppearance="dark"
+                        />
+                    </View>
+
+                    <View style={styles.form}>
+                        <Text style={styles.text}>Mật khẩu</Text>
+                        <View style={styles.inputContainer}>
+                            <TextInput
+                                style={[styles.textinput, isFocused === 'password' && styles.formFocused]}
+                                value={password}
+                                onChangeText={handlePasswordChange}
+                                onFocus={() => handleFocus('password')}
+                                onBlur={handleBlur}
+                                selectionColor={'#C193FF'}
+                                secureTextEntry={secureTextEntry}
+                                keyboardAppearance="light"
+                            />
+                            <Ionicons
+                                name={secureTextEntry ? 'eye' : 'eye-off'}
+                                size={24}
+                                color="white"
+                                style={[styles.eyeIcon, isFocused === 'password' && styles.iconfocuse]}
+                                onPress={toggleSecureTextEntry}
+                            />
+                        </View>
+                    </View>
+                    <TouchableOpacity onPress={handleLogin} disabled={isButtonDisabled}>
+                        <View style={[styles.viewbtn, { backgroundColor: isButtonDisabled ? '#3E3E40' : '#C193FF' }]}>
+                            <Text style={[styles.text1, { color: isButtonDisabled ? 'gray' : 'white' }]}>
+                                Đăng nhập
+                            </Text>
+                        </View>
+                    </TouchableOpacity>
+                </Animated.View>
+            </KeyboardAwareScrollView>
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({
+    contentContainer: {
+        // height:'100%',
+    },
+    container: {
+        flex: 1,
+        backgroundColor: '#0E0E10',
+        paddingLeft: 5,
+        paddingRight: 15
+    },
+    viewtitle: {
+        marginTop: 45,
+        alignItems: 'center',
+    },
+    title: {
+        color: 'white',
+        fontSize: 30,
+    },
+    viewform: {
+        flex: 1,
+        paddingTop: 200
+    },
+    form: {
+        paddingLeft: 10,
+        marginBottom: 20
+    },
+    formFocused: {
+        borderWidth: 2,
+        borderColor: '#C193FF',
+    },
+    text: {
+        fontSize: 25,
+        color: 'white',
+        marginBottom: 5
+    },
+    text1: {
+        fontSize: 25,
+        color: 'gray',
+    },
+    textinput: {
+        height: 50,
+        backgroundColor: '#3E3E40',
+        borderRadius: 7,
+        color: 'white',
+        paddingLeft: 10,
+        fontSize: 25,
+    },
+    viewbtn: {
+        marginTop: 20,
+        height: 50,
+        backgroundColor: '#3E3E40',
+        borderRadius: 7,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: 10
+    },
+    formFocused: {
+        backgroundColor: '#0E0E10',
+        borderColor: '#C193FF',
+        borderWidth: 2
+    },
+    inputContainer: {
+        // backgroundColor:'red',
+    },
+    eyeIcon: {
+        position: 'absolute',
+        right: 15,
+        top: 12,
+        display: 'none'
+    },
+    iconfocuse: {
+        display: 'flex'
+    }
+});
+
+export default Login;

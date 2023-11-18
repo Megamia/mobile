@@ -21,14 +21,14 @@ export default function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen name="Main" component={Login} options={{headerShown:false}}/> */}
-        <Stack.Screen name="Main" component={NavBOT} options={{headerShown:false}}/>
+        <Stack.Screen name="Main" component={Login} options={{headerShown:false}}/>
+        <Stack.Screen name="NavBOT" component={NavBOT} options={{headerShown:false}}/>
         <Stack.Screen name="Account" component={Account} options={{headerShown:false}}/>
         <Stack.Screen name="Chualam" component={Chualam} options={{headerShown:false}}/>
         <Stack.Screen name="Notification" component={Notification} options={{headerShown:false}}/>
         <Stack.Screen name="NotificationST" component={NotificationST} options={{headerShown:false}}/>
         <Stack.Screen name="Profile" component={Profile} options={{headerShown:false}}/>
-        <Stack.Screen name="Mychannel" component={Mychannel} options={{headerShown:false}}/>
+        {/* <Stack.Screen name="Mychannel" component={Mychannel} options={{headerShown:false}}/> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -37,7 +37,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'blue',
+    // backgroundColor: 'blue',
     alignItems: 'center',
     justifyContent: 'center',
   },
