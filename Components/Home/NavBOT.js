@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { FontAwesome, FontAwesome5, MaterialCommunityIcons, Feather,Ionicons } from 'react-native-vector-icons';
+import { FontAwesome, Feather,Ionicons } from 'react-native-vector-icons';
 import Motinor from '../Motinor/Motinor';
 import Discover from '../Discover/Discover';
 import Browser from '../Browser/Browser';
@@ -16,7 +15,7 @@ const NavBOT = () => {
       
       if (route.name === 'Theo dõi') {
         const iconName = focused ? 'heart' : 'heart-o';
-        iconComponent = <FontAwesome name={iconName} size={size} color={color} style={styles.icon} />;
+        iconComponent = <FontAwesome name={iconName} size={size} color={color}  />;
       } else if (route.name === 'Khám phá') {
         const iconName = focused ? 'compass' : 'compass-outline';
         iconComponent = <Ionicons name={iconName} size={size+5} color={color} />;
@@ -49,7 +48,4 @@ const NavBOT = () => {
     </Tab.Navigator>
   );
 };
-
-const styles=StyleSheet.create({
-})
 export default NavBOT;
