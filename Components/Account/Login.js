@@ -6,6 +6,7 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const [secureTextEntry, setSecureTextEntry] = useState(true);
     const [animatedValue] = useState(new Animated.Value(0));
 
@@ -35,7 +36,7 @@ const Login = () => {
         }
     };
     const toggleSecureTextEntry = () => {
-        setSecureTextEntry(!secureTextEntry);
+        setSecureTextEntry((prevValue) => !prevValue);
     };
 
     useEffect(() => {
@@ -76,7 +77,7 @@ const Login = () => {
     useEffect(() => {
         const backgroundColor = isButtonDisabled ? 'gray' : '#C193FF';
         styles.viewbtn.backgroundColor = backgroundColor;
-      }, [isButtonDisabled]);
+    }, [isButtonDisabled]);
 
     return (
         <View style={styles.container}>
@@ -85,7 +86,12 @@ const Login = () => {
                     Đăng nhập
                 </Text>
             </View>
-            <KeyboardAwareScrollView contentContainerStyle={styles.contentContainer}>
+            <KeyboardAwareScrollView
+                contentContainerStyle={{ flexGrow: 1 }}
+                keyboardShouldPersistTaps="handled"
+                enableOnAndroid={true}
+                enableAutomaticScroll={Platform.OS === 'ios'}
+            >
                 <Animated.View style={[styles.viewform, { transform: [{ translateY: animatedValue }] }]}>
                     <View style={styles.form}>
                         <Text style={styles.text}>
@@ -157,7 +163,7 @@ const styles = StyleSheet.create({
     },
     viewform: {
         flex: 1,
-        paddingTop: 200
+        paddingTop: 150
     },
     form: {
         paddingLeft: 10,

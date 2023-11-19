@@ -69,7 +69,7 @@ const Account = () => {
 
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Setting')}>
           <View style={styles.anothermid}>
             <View style={styles.iconContainer1}>
               <Ionicons name="ios-settings-outline" size={24} color="white" />

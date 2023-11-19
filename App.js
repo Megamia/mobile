@@ -14,6 +14,7 @@ import Login from './Components/Account/Login';
 import Motinor from './Components/Motinor/Motinor';
 import Profile from './Components/User/Profile';
 import Mychannel from './Components/User/Mychannel';
+import Setting from './Components/User/Setting';
 
 const Stack = createStackNavigator();
 
@@ -28,7 +29,9 @@ export default function App() {
         <Stack.Screen name="Notification" component={Notification} options={{headerShown:false}}/>
         <Stack.Screen name="NotificationST" component={NotificationST} options={{headerShown:false}}/>
         <Stack.Screen name="Profile" component={Profile} options={{headerShown:false}}/>
-        {/* <Stack.Screen name="Mychannel" component={Mychannel} options={{headerShown:false}}/> */}
+        <Stack.Screen name="Setting" component={Setting} options={{headerShown:false}}/>
+
+        <Stack.Screen name="Mychannel" component={Mychannel} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
