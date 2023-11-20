@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, Feather,Ionicons } from 'react-native-vector-icons';
 import Motinor from '../Motinor/Motinor';
 import Discover from '../Discover/Discover';
-import Browser from '../Browser/Browser';
+import Borwser1 from '../Browser/Browser1';
 import Search from '../Search/Search';
 
 const Tab = createBottomTabNavigator();
@@ -43,7 +43,7 @@ const NavBOT = () => {
     <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen name="Theo dõi" component={Motinor} options={{ headerShown: false }} />
       <Tab.Screen name="Khám phá" component={Discover} options={{ headerShown: false }} />
-      <Tab.Screen name="Duyệt" component={Browser} options={{ headerShown: false }} />
+      <Tab.Screen name="Duyệt" component={Borwser1} options={{ headerShown: false }} />
       <Tab.Screen name="Tìm kiếm" component={Search} options={{ headerShown: false }} />
     </Tab.Navigator>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import NavTOP from '../Home/NavTOP';
-import NavTOP2 from '../Home/NavTOP2';
+import NavTOP2 from './NavTOP2';
 
 const Browser = ({ navigation }) => {
   return (
@@ -9,14 +9,14 @@ const Browser = ({ navigation }) => {
       <View style={styles.top}>
         <NavTOP />
       </View>
-      {/* <View style={styles.top1}>
+      <View style={styles.top1}>
         <NavTOP2 />
-      </View> */}
-      <ScrollView style={styles.scrollView}>
+      </View>
+      {/* <ScrollView style={styles.scrollView}>
         <View style={styles.content}>
           <Text style={styles.text}>Screen Duyệt</Text>
         </View>
-      </ScrollView>
+      </ScrollView> */}
     </View>
   );
 };
@@ -24,19 +24,19 @@ const Browser = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0E0E10',
+    // backgroundColor: '#0E0E10',
   },
   top: {
     height: 85,
     // backgroundColor: 'red',
     zIndex: 1,
   },
-  // top1: {
-  //   backgroundColor: 'white',
-  //   top: 90,
-  //   position: 'absolute', 
-  //   zIndex: 2,
-  // },
+  top1: {
+    backgroundColor: 'white',
+    top: 90,
+    position: 'absolute', 
+    zIndex: 2,
+  },
   scrollView: {
     flex: 1,
   },

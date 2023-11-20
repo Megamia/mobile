@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import NavTOP2 from '../Home/NavTOP2';
+import NavTOP2 from './Browser1';
 
 const Onlinechannel = () => {
   return (
