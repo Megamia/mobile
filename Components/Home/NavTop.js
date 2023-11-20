@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         color: 'white',
     },
     a: {
-        marginLeft: 20,
+        marginLeft: 15,
         marginTop: 35,
         position: 'absolute',
         left: 0,
@@ -73,13 +73,13 @@ const styles = StyleSheet.create({
         height: 40
     },
     icon: {
-        marginHorizontal:15,
+        marginHorizontal:10,
     },
     iconContainer: {
         backgroundColor: '#8304B2',
         borderRadius: 50,
         padding: 6,
-        marginLeft: 5,
+        
     },
 });
 

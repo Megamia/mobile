@@ -29,7 +29,6 @@ const Login = () => {
 
     const handleLogin = () => {
         if (username === 'admin' && password === '123') {
-            Alert.alert('Đăng nhập thành công');
             navigation.navigate('NavBOT');
         } else {
             Alert.alert('Đăng nhập thất bại');

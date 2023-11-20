@@ -122,8 +122,8 @@ const Setting = () => {
                 </TouchableOpacity>
             </View>
             <TouchableOpacity onPress={(handleLogout)}>
-                <View style={styles.anothermid}>
-                    <Text style={styles.text}>
+                <View style={styles.logout}>
+                    <Text style={styles.textlogout}>
                         Đăng xuất
                     </Text>
                 </View>
@@ -191,8 +191,8 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         marginBottom: 15
     },
-    viewtext1:{
-        flex:1,
+    viewtext1: {
+        flex: 1,
     },
     text1: {
         flex: 1,
@@ -201,8 +201,8 @@ const styles = StyleSheet.create({
         color: '#EAEAEC',
         marginLeft: 10,
     },
-    textup:{
-marginTop:10
+    textup: {
+        marginTop: 10
     },
     textdown: {
         color: '#A6A5AA',
@@ -238,7 +238,7 @@ marginTop:10
         flexDirection: 'row',
         alignItems: 'center',
         borderBottomColor: '#2F2F33',
-        borderWidth: 1
+        borderWidth: 1,
     },
     anotherbot: {
         backgroundColor: '#18171C',
@@ -253,6 +253,20 @@ marginTop:10
     icon: {
         justifyContent: 'flex-end',
         marginRight: 20,
+    },
+    textlogout: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#EAEAEC',
+        paddingTop:15,
+    },
+    logout: {
+        backgroundColor: '#18171C',
+        height: 70,
+        alignItems: 'center',
+        borderWidth: 1,
+        borderBottomLeftRadius: 15,
+        borderBottomRightRadius: 15,
     }
 });
 

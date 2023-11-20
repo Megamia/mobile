@@ -1,10 +1,9 @@
 import React from 'react';
 import { Text, View, Dimensions, StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import Screen1 from '../../Test/Screen1';
-import Screen2 from '../../Test/Screen2';
-import Screen3 from '../../Test/Screen3';
-import NavTOP from '../Home/NavTOP';
+import Category from './Category';
+import Channel from './Channel';
+import NavTOP from '../Home/NavTop';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -30,26 +29,25 @@ const Borwser1 = () => {
         tabBarLabelStyle: {
             fontSize: 15,
             fontWeight: 'bold',
-            textTransform: 'capitalize',
+            textTransform: 'none',
         },
         tabBarItemStyle: {
             height: 50,
             // backgroundColor:'red',
-            left:-15,
-            top:-10
+            left:-18,
+            top:-10,
         },
         tabBarStyle: {
-            width: '75%',
-            height: 55,
-            backgroundColor: 'black',
-            top: -10,
+            width: '70%',
+            height: 50,
+            backgroundColor: '#0E0E10',
+          
         },
         tabBarIndicatorStyle: {
             backgroundColor: '#BC95F7',
-            height: 5,
+            height: 3,
             width: getTabWidth(route.name),
-            left:64,
-            marginBottom: 3,
+            left:51,
             marginLeft: -getTabWidth(route.name) / 2,
         },
 
@@ -62,8 +60,8 @@ const Borwser1 = () => {
             </View>
             <View style={styles.container2}>
                 <Tab.Navigator screenOptions={screenOptions}>
-                    <Tab.Screen name="Danh mục" component={Screen1} options={{ headerShown: false }} />
-                    <Tab.Screen name="Kênh trực tiếp" component={Screen2} options={{ headerShown: false }} />
+                    <Tab.Screen name="Danh mục" component={Category} options={{ headerShown: false }} />
+                    <Tab.Screen name="Kênh trực tiếp" component={Channel} options={{ headerShown: false }} />
                 </Tab.Navigator>
             </View>
         </View>
@@ -75,11 +73,11 @@ const styles = StyleSheet.create({
         flex:1
     },
     container1: {
-        backgroundColor: 'black',
+        backgroundColor: '#0E0E10',
         zIndex: 2,
     },
     container2: {
-        backgroundColor: 'black',
+        backgroundColor: '#0E0E10',
         flex:1,
         // height:
     }

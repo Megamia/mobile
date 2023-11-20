@@ -1,10 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-<<<<<<< HEAD
 import NavTOP from '../Home/NavTop';
-=======
-import NavTOP from '../Home/NavTOP';
->>>>>>> dc76351ec728c33e7ae16305076504c6bac5873d
 
 const Discover = ({ navigation }) => {
   return (
