@@ -9,7 +9,7 @@ import Dienmao from './Components/User/Dienmao';
 import Chualam from './Components/User/Chualam';
 import Notification from './Components/Home/Notification/Notification';
 import NotificationST from './Components/Home/Notification/NotificationST';
-
+import NavTOP from './Components/Home/NavTop';
 import Login from './Components/Account/Login';
 import Motinor from './Components/Motinor/Motinor';
 import Profile from './Components/User/Profile';
@@ -24,8 +24,8 @@ export default function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={Intro} options={{headerShown:false}}/>
         <Stack.Screen name="NavBOT" component={NavBOT} options={{headerShown:false}}/>
+        <Stack.Screen name="Main" component={Intro} options={{headerShown:false}}/>  
         <Stack.Screen name="Account" component={Account} options={{headerShown:false}}/>
         <Stack.Screen name="Chualam" component={Chualam} options={{headerShown:false}}/>
         <Stack.Screen name="Notification" component={Notification} options={{headerShown:false}}/>

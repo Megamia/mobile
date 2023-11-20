@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, FlatList } from 'react-native';
-import { Octicons, Entypo } from '@expo/vector-icons';
-import NavTOP from '../Home/NavTOP';
+import { Octicons} from '@expo/vector-icons';
+import NavTOP from '../Home/NavTop';
 
 const Motinor = ({ navigation }) => {
   const data = [
@@ -344,7 +344,7 @@ const styles = StyleSheet.create({
   imguser: {
     width: 20,
     height: 20,
-    borderRadius: '50%'
+    borderRadius: 10,
   },
   user: {
     flexDirection: 'row',

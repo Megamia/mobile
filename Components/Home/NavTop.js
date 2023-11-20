@@ -79,7 +79,8 @@ const styles = StyleSheet.create({
     iconContainer: {
         backgroundColor: '#8304B2',
         borderRadius: 50,
-        padding: 6
+        padding: 6,
+        marginLeft: 5,
     },
 });
 

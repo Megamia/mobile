@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import Top from '../Home/NavTOP';
+import NavTOP from '../Home/NavTop';
 
 const Discover = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Top />
+        <NavTOP />
       </View>
       <ScrollView style={styles.scrollView}>
         <View style={styles.content}>
