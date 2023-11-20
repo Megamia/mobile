@@ -1,27 +1,22 @@
 import React from 'react';
-<<<<<<< HEAD
 import { View, Text, StyleSheet, ScrollView, Image, FlatList } from 'react-native';
 import { Octicons, Entypo } from '@expo/vector-icons';
-import NavTOP from '../Home/NavTop';
-=======
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import NavTOP from '../Home/NavTOP';
->>>>>>> 463af9d5d3e94342dd91f9a0e59022fa7f61b33e
 
 const Motinor = ({ navigation }) => {
   const data = [
-    { id: 1, image: require('../../assets/img/danhmuc/genshin.jpg'), name: 'Genshin Impact', countview:'15.285'},
-    { id: 2, image: require('../../assets/img/danhmuc/lol.jpg'), name: 'League Of Leg...', countview:'201.831' },
-    { id: 3, image: require('../../assets/img/danhmuc/cs2.png'), name: 'Counter-Strike 2', countview:'47.568' },
-    { id: 4, image: require('../../assets/img/danhmuc/valorant.png'), name: 'Valorant',countview:'79.717' },
+    { id: 1, image: require('../../assets/img/danhmuc/genshin.jpg'), name: 'Genshin Impact', countview: '15.285' },
+    { id: 2, image: require('../../assets/img/danhmuc/lol.jpg'), name: 'League Of Leg...', countview: '201.831' },
+    { id: 3, image: require('../../assets/img/danhmuc/cs2.png'), name: 'Counter-Strike 2', countview: '47.568' },
+    { id: 4, image: require('../../assets/img/danhmuc/valorant.png'), name: 'Valorant', countview: '79.717' },
   ];
-  const renderItem = ({item}) => (
+  const renderItem = ({ item }) => (
     <View style={styles.slide}>
-      <Image source={item.image} style={styles.imagedanhmuc}/>
+      <Image source={item.image} style={styles.imagedanhmuc} />
       <Text style={styles.textdanhmuc}>{item.name}</Text>
       <View style={styles.viewdanhmuc}>
-      <Octicons name="dot-fill" style={styles.dotlivecategory}/>
-      <Text style={styles.countviewcategory}>{item.countview}</Text>
+        <Octicons name="dot-fill" style={styles.dotlivecategory} />
+        <Text style={styles.countviewcategory}>{item.countview}</Text>
       </View>
     </View>
   );
@@ -30,7 +25,7 @@ const Motinor = ({ navigation }) => {
       <View style={styles.top}>
         <NavTOP />
       </View>
-      <ScrollView style={styles.scrollView} stickyHeaderIndices={[1, 3, 5]} showsVerticalScrollIndicator={true} scrollIndicatorInsets={{backgroundColor: 'red' }}>
+      <ScrollView style={styles.scrollView} stickyHeaderIndices={[1, 3, 5]} showsVerticalScrollIndicator={true} scrollIndicatorInsets={{ backgroundColor: 'red' }}>
         <View style={styles.main}>
           <View style={styles.contentL}>
             <View style={styles.title}>
@@ -71,7 +66,7 @@ const Motinor = ({ navigation }) => {
                   resizeMode="cover"
                 />
                 <View style={styles.overlay} />
-                <Octicons name="dot-fill"  style={styles.dotlive} />
+                <Octicons name="dot-fill" style={styles.dotlive} />
                 <Text style={styles.contview}>10.523</Text>
               </View>
               <View style={styles.detail}>
@@ -98,7 +93,7 @@ const Motinor = ({ navigation }) => {
                   resizeMode="cover"
                 />
                 <View style={styles.overlay} />
-                <Octicons name="dot-fill"  style={styles.dotlive} />
+                <Octicons name="dot-fill" style={styles.dotlive} />
                 <Text style={styles.contview}>2.041</Text>
               </View>
               <View style={styles.detail}>
@@ -197,7 +192,7 @@ const Motinor = ({ navigation }) => {
                   resizeMode="cover"
                 />
                 <View style={styles.overlay} />
-                <Octicons name="dot-fill"  style={styles.dotlive} />
+                <Octicons name="dot-fill" style={styles.dotlive} />
                 <Text style={styles.contview}>10.523</Text>
               </View>
               <View style={styles.detail}>
@@ -224,7 +219,7 @@ const Motinor = ({ navigation }) => {
                   resizeMode="cover"
                 />
                 <View style={styles.overlay} />
-                <Octicons name="dot-fill"  style={styles.dotlive} />
+                <Octicons name="dot-fill" style={styles.dotlive} />
                 <Text style={styles.contview}>2.041</Text>
               </View>
               <View style={styles.detail}>
@@ -286,7 +281,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-    marginBottom:10,
+    marginBottom: 10,
   },
   text: {
     fontSize: 18,
@@ -381,11 +376,11 @@ const styles = StyleSheet.create({
   },
   slide: {
     marginRight: 10,
-    marginTop:15,
+    marginTop: 15,
   },
   imagedanhmuc: {
-    width: 188*0.7,
-    height: 250*0.7,
+    width: 188 * 0.7,
+    height: 250 * 0.7,
     resizeMode: 'cover',
   },
   textdanhmuc: {
@@ -394,18 +389,18 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginTop: 5,
   },
-  dotlivecategory:{
+  dotlivecategory: {
     color: '#E9181B',
     fontSize: 16,
     marginRight: 5,
   },
-  countviewcategory:{
+  countviewcategory: {
     fontSize: 14,
     color: '#A8A7B0',
     fontWeight: '500',
   },
-  viewdanhmuc:{
-    flexDirection:'row',
+  viewdanhmuc: {
+    flexDirection: 'row',
     alignItems: 'center',
   }
 });

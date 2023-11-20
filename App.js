@@ -4,20 +4,18 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Account from './Components/User/Account';
 import { NavigationContainer } from '@react-navigation/native';
-import TabNavigationBOT from './Components/Home/NavBOT';
+import NavBOT from './Components/Home/NavBOT';
 import Dienmao from './Components/User/Dienmao';
 import Chualam from './Components/User/Chualam';
 import Notification from './Components/Home/Notification/Notification';
 import NotificationST from './Components/Home/Notification/NotificationST';
 
-import NavBOT from './Components/Home/NavBOT';
 import Login from './Components/Account/Login';
 import Motinor from './Components/Motinor/Motinor';
 import Profile from './Components/User/Profile';
 import Mychannel from './Components/User/Mychannel';
 import Setting from './Components/User/Setting';
 import Intro from './Components/Account/Intro';
-import NavTOP from './Components/Home/NavTOP';
 import NavTOP2 from './Components/Home/NavTOP2';
 import Onlinechannel from './Components/Browser/Onlinechannel';
 
@@ -26,14 +24,8 @@ export default function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator>
-<<<<<<< HEAD
-        <Stack.Screen name="TabNavigationBOT" component={NavBOT} options={{headerShown:false}}/>
         <Stack.Screen name="Main" component={Intro} options={{headerShown:false}}/>
         <Stack.Screen name="NavBOT" component={NavBOT} options={{headerShown:false}}/>
-=======
-        <Stack.Screen name="Main" component={NavBOT} options={{headerShown:false}}/>
-        {/* <Stack.Screen name="NavBOT" component={NavBOT} options={{headerShown:false}}/> */}
->>>>>>> 463af9d5d3e94342dd91f9a0e59022fa7f61b33e
         <Stack.Screen name="Account" component={Account} options={{headerShown:false}}/>
         <Stack.Screen name="Chualam" component={Chualam} options={{headerShown:false}}/>
         <Stack.Screen name="Notification" component={Notification} options={{headerShown:false}}/>
@@ -43,7 +35,6 @@ export default function App() {
         <Stack.Screen name="Mychannel" component={Mychannel} options={{headerShown:false}}/>
         <Stack.Screen name="Login" component={Login} options={{headerShown:false}}/>
         <Stack.Screen name="Onlinechannel" component={Onlinechannel} options={{headerShown:false}}/>
-
       </Stack.Navigator>
     </NavigationContainer>
   );
