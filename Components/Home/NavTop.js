@@ -43,14 +43,13 @@ const styles = StyleSheet.create({
         height: 85,
         alignItems: 'flex-start',
         justifyContent: 'flex-end',
-        backgroundColor: 'rgba(14,14,16, 0.9)',
     },
     text: {
         fontSize: 20,
         color: 'white',
     },
     a: {
-        marginLeft: 10,
+        marginLeft: 20,
         marginTop: 35,
         position: 'absolute',
         left: 0,

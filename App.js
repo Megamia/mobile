@@ -16,7 +16,7 @@ import Profile from './Components/User/Profile';
 import Mychannel from './Components/User/Mychannel';
 import Setting from './Components/User/Setting';
 import Intro from './Components/Account/Intro';
-import NavTOP2 from './Components/Home/NavTOP2';
+import Browser1 from './Components/Browser/Browser1';
 import Onlinechannel from './Components/Browser/Onlinechannel';
 
 const Stack = createStackNavigator();
@@ -24,8 +24,8 @@ export default function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={Intro} options={{headerShown:false}}/>
-        <Stack.Screen name="NavBOT" component={NavBOT} options={{headerShown:false}}/>
+        <Stack.Screen name="Main" component={NavBOT} options={{headerShown:false}}/>
+        {/* <Stack.Screen name="NavBOT" component={NavBOT} options={{headerShown:false}}/> */}
         <Stack.Screen name="Account" component={Account} options={{headerShown:false}}/>
         <Stack.Screen name="Chualam" component={Chualam} options={{headerShown:false}}/>
         <Stack.Screen name="Notification" component={Notification} options={{headerShown:false}}/>
