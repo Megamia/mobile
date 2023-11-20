@@ -92,7 +92,7 @@ const Intro = () => {
                     Nơi mang đến mọi trải nghiệm dành cho bạn
                 </Text>
             </View>
-            
+
             <View style={styles.account}>
                 <TouchableOpacity onPress={() => navigation.navigate('Login')}>
                     <View style={styles.button}>
@@ -197,6 +197,9 @@ const styles = StyleSheet.create({
         width: 60,
         marginLeft: -23,
     },
+    intro: {
+        marginTop: 20,
+    }
 });
 
 export default Intro;

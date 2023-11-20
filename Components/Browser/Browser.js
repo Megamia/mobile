@@ -1,13 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import Top from '../Home/NavTop';
+import NavTOP from '../Home/NavTOP';
+import NavTOP2 from '../Home/NavTOP2';
 
 const Browser = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <Top />
+        <NavTOP />
       </View>
+      {/* <View style={styles.top1}>
+        <NavTOP2 />
+      </View> */}
       <ScrollView style={styles.scrollView}>
         <View style={styles.content}>
           <Text style={styles.text}>Screen Duyệt</Text>
@@ -24,7 +28,15 @@ const styles = StyleSheet.create({
   },
   top: {
     height: 85,
+    // backgroundColor: 'red',
+    zIndex: 1,
   },
+  // top1: {
+  //   backgroundColor: 'white',
+  //   top: 90,
+  //   position: 'absolute', 
+  //   zIndex: 2,
+  // },
   scrollView: {
     flex: 1,
   },
