@@ -1,9 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image, FlatList } from 'react-native';
-import { Octicons} from '@expo/vector-icons';
+import { View, Text, StyleSheet, ScrollView, Image, FlatList, TouchableOpacity,Alert } from 'react-native';
+import { Octicons } from '@expo/vector-icons';
 import NavTOP from '../Home/NavTOP';
 
 const Motinor = ({ navigation }) => {
+
+  const handlePress = () => {
+    Alert.alert('Thông báo', 'Chưa làm');
+  };
   const data = [
     { id: 1, image: require('../../assets/img/danhmuc/genshin.jpg'), name: 'Genshin Impact', countview: '15.285' },
     { id: 2, image: require('../../assets/img/danhmuc/lol.jpg'), name: 'League Of Leg...', countview: '201.831' },
@@ -11,15 +15,18 @@ const Motinor = ({ navigation }) => {
     { id: 4, image: require('../../assets/img/danhmuc/valorant.png'), name: 'Valorant', countview: '79.717' },
   ];
   const renderItem = ({ item }) => (
-    <View style={styles.slide}>
-      <Image source={item.image} style={styles.imagedanhmuc} />
-      <Text style={styles.textdanhmuc}>{item.name}</Text>
-      <View style={styles.viewdanhmuc}>
-        <Octicons name="dot-fill" style={styles.dotlivecategory} />
-        <Text style={styles.countviewcategory}>{item.countview}</Text>
+    <TouchableOpacity onPress={handlePress} >
+      <View style={styles.slide}>
+        <Image source={item.image} style={styles.imagedanhmuc} />
+        <Text style={styles.textdanhmuc}>{item.name}</Text>
+        <View style={styles.viewdanhmuc}>
+          <Octicons name="dot-fill" style={styles.dotlivecategory} />
+          <Text style={styles.countviewcategory}>{item.countview}</Text>
+        </View>
       </View>
-    </View>
+      </TouchableOpacity>
   );
+
   return (
     <View style={styles.container}>
       <View style={styles.top}>
@@ -31,60 +38,65 @@ const Motinor = ({ navigation }) => {
             <View style={styles.title}>
               <Text style={styles.texttitle}>Các kênh trực tiếp của bạn</Text>
             </View>
-            <View style={styles.contentS}>
-              <View>
-                <Image
-                  source={require('../../assets/gif/valorantfun.gif')}
-                  style={styles.imglive}
-                  resizeMode="cover"
-                />
-                <View style={styles.overlay} />
-                <Octicons name="dot-fill" style={styles.dotlive} />
-                <Text style={styles.contview}>7.644</Text>
-              </View>
-              <View style={styles.detail}>
-                <View style={styles.user}>
-                  <Image source={require('../../assets/img/valorantuser.png')}
-                    style={styles.imguser}
-                    resizeMode="cover" />
-                  <Text style={styles.username}>Valorant Esports</Text>
+            <TouchableOpacity onPress={handlePress} >
+              <View style={styles.contentS}>
+                <View>
+                  <Image
+                    source={require('../../assets/gif/valorantfun.gif')}
+                    style={styles.imglive}
+                    resizeMode="cover"
+                  />
+                  <View style={styles.overlay} />
+                  <Octicons name="dot-fill" style={styles.dotlive} />
+                  <Text style={styles.contview}>7.644</Text>
                 </View>
-                <Text style={styles.textcontent} numberOfLines={1} ellipsizeMode="tail">pag time for int, t1 win...</Text>
-                <Text style={styles.textcontent}>Valorant</Text>
-                <View style={styles.category}>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>Gaming</Text></View>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>Esposts</Text></View>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>Valorant</Text></View>
-                </View>
-              </View>
-            </View>
-            <View style={styles.contentS}>
-              <View>
-                <Image
-                  source={require('../../assets/gif/boxing.gif')}
-                  style={styles.imglive}
-                  resizeMode="cover"
-                />
-                <View style={styles.overlay} />
-                <Octicons name="dot-fill" style={styles.dotlive} />
-                <Text style={styles.contview}>10.523</Text>
-              </View>
-              <View style={styles.detail}>
-                <View style={styles.user}>
-                  <Image source={require('../../assets/img/ufc.png')}
-                    style={styles.imguser}
-                    resizeMode="cover" />
-                  <Text style={styles.username} numberOfLines={1} ellipsizeMode="tail">Ultimate Fighting...</Text>
-                </View>
-                <Text style={styles.textcontent} numberOfLines={1} ellipsizeMode="tail">Mixed Martial Arts...</Text>
-                <Text style={styles.textcontent}>U.F.C</Text>
-                <View style={styles.category}>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>UFC</Text></View>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>Sports</Text></View>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>Fighter</Text></View>
+                <View style={styles.detail}>
+                  <View style={styles.user}>
+                    <Image source={require('../../assets/img/valorantuser.png')}
+                      style={styles.imguser}
+                      resizeMode="cover" />
+                    <Text style={styles.username}>Valorant Esports</Text>
+                  </View>
+                  <Text style={styles.textcontent} numberOfLines={1} ellipsizeMode="tail">pag time for int, t1 win...</Text>
+                  <Text style={styles.textcontent}>Valorant</Text>
+                  <View style={styles.category}>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>Gaming</Text></View>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>Esposts</Text></View>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>Valorant</Text></View>
+                  </View>
                 </View>
               </View>
-            </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handlePress} >
+              <View style={styles.contentS}>
+                <View>
+                  <Image
+                    source={require('../../assets/gif/boxing.gif')}
+                    style={styles.imglive}
+                    resizeMode="cover"
+                  />
+                  <View style={styles.overlay} />
+                  <Octicons name="dot-fill" style={styles.dotlive} />
+                  <Text style={styles.contview}>10.523</Text>
+                </View>
+                <View style={styles.detail}>
+                  <View style={styles.user}>
+                    <Image source={require('../../assets/img/ufc.png')}
+                      style={styles.imguser}
+                      resizeMode="cover" />
+                    <Text style={styles.username} numberOfLines={1} ellipsizeMode="tail">Ultimate Fighting...</Text>
+                  </View>
+                  <Text style={styles.textcontent} numberOfLines={1} ellipsizeMode="tail">Mixed Martial Arts...</Text>
+                  <Text style={styles.textcontent}>U.F.C</Text>
+                  <View style={styles.category}>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>UFC</Text></View>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>Sports</Text></View>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>Fighter</Text></View>
+                  </View>
+                </View>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handlePress} >
             <View style={styles.contentS}>
               <View>
                 <Image
@@ -111,33 +123,36 @@ const Motinor = ({ navigation }) => {
                 </View>
               </View>
             </View>
-            <View style={styles.contentS}>
-              <View>
-                <Image
-                  source={require('../../assets/gif/mukbang.gif')}
-                  style={styles.imglive}
-                  resizeMode="cover"
-                />
-                <View style={styles.overlay} />
-                <Octicons name="dot-fill" style={styles.dotlive} />
-                <Text style={styles.contview}>2.721</Text>
-              </View>
-              <View style={styles.detail}>
-                <View style={styles.user}>
-                  <Image source={require('../../assets/img/mukbanguser.png')}
-                    style={styles.imguser}
-                    resizeMode="cover" />
-                  <Text style={styles.username}>Matty & Benny</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handlePress} >
+              <View style={styles.contentS}>
+                <View>
+                  <Image
+                    source={require('../../assets/gif/mukbang.gif')}
+                    style={styles.imglive}
+                    resizeMode="cover"
+                  />
+                  <View style={styles.overlay} />
+                  <Octicons name="dot-fill" style={styles.dotlive} />
+                  <Text style={styles.contview}>2.721</Text>
                 </View>
-                <Text style={styles.textcontent} numberOfLines={1} ellipsizeMode="tail">Eat Out America</Text>
-                <Text style={styles.textcontent}>Mukbang</Text>
-                <View style={styles.category}>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>Mukbang</Text></View>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>ASMR</Text></View>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>Cuisine</Text></View>
+                <View style={styles.detail}>
+                  <View style={styles.user}>
+                    <Image source={require('../../assets/img/mukbanguser.png')}
+                      style={styles.imguser}
+                      resizeMode="cover" />
+                    <Text style={styles.username}>Matty & Benny</Text>
+                  </View>
+                  <Text style={styles.textcontent} numberOfLines={1} ellipsizeMode="tail">Eat Out America</Text>
+                  <Text style={styles.textcontent}>Mukbang</Text>
+                  <View style={styles.category}>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>Mukbang</Text></View>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>ASMR</Text></View>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>Cuisine</Text></View>
+                  </View>
                 </View>
               </View>
-            </View>
+            </TouchableOpacity>
           </View>
 
           <View style={styles.contentL}>
@@ -157,115 +172,123 @@ const Motinor = ({ navigation }) => {
             <View style={styles.title}>
               <Text style={styles.texttitle}>Kênh được đề xuất cho bạn</Text>
             </View>
-            <View style={styles.contentS}>
-              <View>
-                <Image
-                  source={require('../../assets/gif/honkai-star-rail-combat-system-8.gif')}
-                  style={styles.imglive}
-                  resizeMode="cover"
-                />
-                <View style={styles.overlay} />
-                <Octicons name="dot-fill" style={styles.dotlive} />
-                <Text style={styles.contview}>4.490</Text>
-              </View>
-              <View style={styles.detail}>
-                <View style={styles.user}>
-                  <Image source={require('../../assets/img/tenha-user.png')}
-                    style={styles.imguser}
-                    resizeMode="cover" />
-                  <Text style={styles.username}>Tenha</Text>
+            <TouchableOpacity onPress={handlePress} >
+              <View style={styles.contentS}>
+                <View>
+                  <Image
+                    source={require('../../assets/gif/honkai-star-rail-combat-system-8.gif')}
+                    style={styles.imglive}
+                    resizeMode="cover"
+                  />
+                  <View style={styles.overlay} />
+                  <Octicons name="dot-fill" style={styles.dotlive} />
+                  <Text style={styles.contview}>4.490</Text>
                 </View>
-                <Text style={styles.textcontent} numberOfLines={1} ellipsizeMode="tail">HSR Genshin dailies...</Text>
-                <Text style={styles.textcontent}>Honkai: Star Rail</Text>
-                <View style={styles.category}>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>English</Text></View>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>Anime</Text></View>
-                  
-                </View>
-              </View>
-            </View>
-            <View style={styles.contentS}>
-              <View>
-                <Image
-                  source={require('../../assets/gif/minecraft.gif')}
-                  style={styles.imglive}
-                  resizeMode="cover"
-                />
-                <View style={styles.overlay} />
-                <Octicons name="dot-fill" style={styles.dotlive} />
-                <Text style={styles.contview}>1.690</Text>
-              </View>
-              <View style={styles.detail}>
-                <View style={styles.user}>
-                  <Image source={require('../../assets/img/maichuxo-user.png')}
-                    style={styles.imguser}
-                    resizeMode="cover" />
-                  <Text style={styles.username} numberOfLines={1} ellipsizeMode="tail">maichuxo</Text>
-                </View>
-                <Text style={styles.textcontent} numberOfLines={1} ellipsizeMode="tail">play minecraft with...</Text>
-                <Text style={styles.textcontent}>Minecraft</Text>
-                <View style={styles.category}>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>ENVtuber</Text></View>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>Singapore</Text></View>
+                <View style={styles.detail}>
+                  <View style={styles.user}>
+                    <Image source={require('../../assets/img/tenha-user.png')}
+                      style={styles.imguser}
+                      resizeMode="cover" />
+                    <Text style={styles.username}>Tenha</Text>
+                  </View>
+                  <Text style={styles.textcontent} numberOfLines={1} ellipsizeMode="tail">HSR Genshin dailies...</Text>
+                  <Text style={styles.textcontent}>Honkai: Star Rail</Text>
+                  <View style={styles.category}>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>English</Text></View>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>Anime</Text></View>
+
+                  </View>
                 </View>
               </View>
-            </View>
-            <View style={styles.contentS}>
-              <View>
-                <Image
-                  source={require('../../assets/gif/lol-lesin.gif')}
-                  style={styles.imglive}
-                  resizeMode="cover"
-                />
-                <View style={styles.overlay} />
-                <Octicons name="dot-fill" style={styles.dotlive} />
-                <Text style={styles.contview}>8.566</Text>
-              </View>
-              <View style={styles.detail}>
-                <View style={styles.user}>
-                  <Image source={require('../../assets/img/Ayellol-user.png')}
-                    style={styles.imguser}
-                    resizeMode="cover" />
-                  <Text style={styles.username}>Ayellol</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handlePress} >
+              <View style={styles.contentS}>
+                <View>
+                  <Image
+                    source={require('../../assets/gif/minecraft.gif')}
+                    style={styles.imglive}
+                    resizeMode="cover"
+                  />
+                  <View style={styles.overlay} />
+                  <Octicons name="dot-fill" style={styles.dotlive} />
+                  <Text style={styles.contview}>1.690</Text>
                 </View>
-                <Text style={styles.textcontent} numberOfLines={1} ellipsizeMode="tail">[DIA 16] AYEL KOR...</Text>
-                <Text style={styles.textcontent}>League of Legends</Text>
-                <View style={styles.category}>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>Ayel</Text></View>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>Toplane</Text></View>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>English</Text></View>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>lol</Text></View>
-                </View>
-              </View>
-            </View>
-            <View style={styles.contentS}>
-              <View>
-                <Image
-                  source={require('../../assets/gif/genshincombat.gif')}
-                  style={styles.imglive}
-                  resizeMode="cover"
-                />
-                <View style={styles.overlay} />
-                <Octicons name="dot-fill" style={styles.dotlive} />
-                <Text style={styles.contview}>3.449</Text>
-              </View>
-              <View style={styles.detail}>
-                <View style={styles.user}>
-                  <Image source={require('../../assets/img/ProfessionalPridER.png')}
-                    style={styles.imguser}
-                    resizeMode="cover" />
-                  <Text style={styles.username}>ProfessionalPridER</Text>
-                </View>
-                <Text style={styles.textcontent} numberOfLines={1} ellipsizeMode="tail">Under the tree-eee...</Text>
-                <Text style={styles.textcontent}>Genshin Impact</Text>
-                <View style={styles.category}>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>Asia</Text></View>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>Anime</Text></View>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>English</Text></View>
-                  <View style={styles.categorybox}><Text style={styles.categorytext}>sus</Text></View>
+                <View style={styles.detail}>
+                  <View style={styles.user}>
+                    <Image source={require('../../assets/img/maichuxo-user.png')}
+                      style={styles.imguser}
+                      resizeMode="cover" />
+                    <Text style={styles.username} numberOfLines={1} ellipsizeMode="tail">maichuxo</Text>
+                  </View>
+                  <Text style={styles.textcontent} numberOfLines={1} ellipsizeMode="tail">play minecraft with...</Text>
+                  <Text style={styles.textcontent}>Minecraft</Text>
+                  <View style={styles.category}>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>ENVtuber</Text></View>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>Singapore</Text></View>
+                  </View>
                 </View>
               </View>
-            </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handlePress} >
+              <View style={styles.contentS}>
+                <View>
+                  <Image
+                    source={require('../../assets/gif/lol-lesin.gif')}
+                    style={styles.imglive}
+                    resizeMode="cover"
+                  />
+                  <View style={styles.overlay} />
+                  <Octicons name="dot-fill" style={styles.dotlive} />
+                  <Text style={styles.contview}>8.566</Text>
+                </View>
+                <View style={styles.detail}>
+                  <View style={styles.user}>
+                    <Image source={require('../../assets/img/Ayellol-user.png')}
+                      style={styles.imguser}
+                      resizeMode="cover" />
+                    <Text style={styles.username}>Ayellol</Text>
+                  </View>
+                  <Text style={styles.textcontent} numberOfLines={1} ellipsizeMode="tail">[DIA 16] AYEL KOR...</Text>
+                  <Text style={styles.textcontent}>League of Legends</Text>
+                  <View style={styles.category}>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>Ayel</Text></View>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>Toplane</Text></View>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>English</Text></View>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>lol</Text></View>
+                  </View>
+                </View>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={handlePress} >
+              <View style={styles.contentS}>
+                <View>
+                  <Image
+                    source={require('../../assets/gif/genshincombat.gif')}
+                    style={styles.imglive}
+                    resizeMode="cover"
+                  />
+                  <View style={styles.overlay} />
+                  <Octicons name="dot-fill" style={styles.dotlive} />
+                  <Text style={styles.contview}>3.449</Text>
+                </View>
+                <View style={styles.detail}>
+                  <View style={styles.user}>
+                    <Image source={require('../../assets/img/ProfessionalPridER.png')}
+                      style={styles.imguser}
+                      resizeMode="cover" />
+                    <Text style={styles.username}>ProfessionalPridER</Text>
+                  </View>
+                  <Text style={styles.textcontent} numberOfLines={1} ellipsizeMode="tail">Under the tree-eee...</Text>
+                  <Text style={styles.textcontent}>Genshin Impact</Text>
+                  <View style={styles.category}>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>Asia</Text></View>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>Anime</Text></View>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>English</Text></View>
+                    <View style={styles.categorybox}><Text style={styles.categorytext}>sus</Text></View>
+                  </View>
+                </View>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
