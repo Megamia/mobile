@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import NavTOP from '../Home/NavTop';
+import NavTOP from '../Home/NavTOP';
 
 const Discover = ({ navigation }) => {
   return (

@@ -9,15 +9,14 @@ import Dienmao from './Components/User/Dienmao';
 import Chualam from './Components/User/Chualam';
 import Notification from './Components/Home/Notification/Notification';
 import NotificationST from './Components/Home/Notification/NotificationST';
-import NavTOP from './Components/Home/NavTop';
+import NavTOP from './Components/Home/NavTOP';
 import Login from './Components/Account/Login';
 import Motinor from './Components/Motinor/Motinor';
 import Profile from './Components/User/Profile';
 import Mychannel from './Components/User/Mychannel';
 import Setting from './Components/User/Setting';
 import Intro from './Components/Account/Intro';
-import Browser1 from './Components/Browser/Browser1';
-import Onlinechannel from './Components/Browser/Onlinechannel';
+import Browser1 from './Components/Browser/NavTOP2';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -34,7 +33,6 @@ export default function App() {
         <Stack.Screen name="Setting" component={Setting} options={{headerShown:false}}/>
         <Stack.Screen name="Mychannel" component={Mychannel} options={{headerShown:false}}/>
         <Stack.Screen name="Login" component={Login} options={{headerShown:false}}/>
-        <Stack.Screen name="Onlinechannel" component={Onlinechannel} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

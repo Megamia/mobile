@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, FlatList } from 'react-native';
 import { Octicons} from '@expo/vector-icons';
-import NavTOP from '../Home/NavTop';
+import NavTOP from '../Home/NavTOP';
 
 const Motinor = ({ navigation }) => {
   const data = [

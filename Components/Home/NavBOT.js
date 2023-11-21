@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, Feather,Ionicons } from 'react-native-vector-icons';
 import Motinor from '../Motinor/Motinor';
 import Discover from '../Discover/Discover';
-import Borwser1 from '../Browser/Browser1';
+import Borwser1 from '../Browser/NavTOP2';
 import Search from '../Search/Search';
 
 const Tab = createBottomTabNavigator();

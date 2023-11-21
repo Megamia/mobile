@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import NavTOP from '../Home/NavTop';
+import NavTOP from '../Home/NavTOP';
 import NavTOP2 from './NavTOP2';
 
 const Browser = ({ navigation }) => {
@@ -12,11 +12,6 @@ const Browser = ({ navigation }) => {
       <View style={styles.top1}>
         <NavTOP2 />
       </View>
-      {/* <ScrollView style={styles.scrollView}>
-        <View style={styles.content}>
-          <Text style={styles.text}>Screen Duyệt</Text>
-        </View>
-      </ScrollView> */}
     </View>
   );
 };

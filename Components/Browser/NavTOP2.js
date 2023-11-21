@@ -3,11 +3,11 @@ import { Text, View, Dimensions, StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Category from './Category';
 import Channel from './Channel';
-import NavTOP from '../Home/NavTop';
+import NavTOP from '../Home/NavTOP';
 
 const Tab = createMaterialTopTabNavigator();
 
-const Borwser1 = () => {
+const NavTOP2 = () => {
     const getTabWidth = (text) => {
         const { width } = Dimensions.get('window');
         const textWidth = Math.ceil(text.length * 9); // Giả định mỗi ký tự có độ rộng 10
@@ -83,4 +83,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Borwser1;
+export default NavTOP2;
