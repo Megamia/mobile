@@ -10,13 +10,12 @@ const Tab = createMaterialTopTabNavigator();
 const NavTOP2 = () => {
     const getTabWidth = (text) => {
         const { width } = Dimensions.get('window');
-        const textWidth = Math.ceil(text.length * 9); // Giả định mỗi ký tự có độ rộng 10
+        const textWidth = Math.ceil(text.length * 9); 
         const maxWidth = width * 0.8;
         return Math.min(textWidth, maxWidth);
     };
     const screenOptions = ({ route }) => ({
-        tabBarIcon: ({ color, focused }) => {
-
+        tabBarIcon: (focused) => {
             if (route.name === 'Danh mục') {
                 iconName = focused ? 'Danh mục' : '';
             } else if (route.name === 'Kênh trực tiếp') {
@@ -41,7 +40,6 @@ const NavTOP2 = () => {
             width: '70%',
             height: 50,
             backgroundColor: '#0E0E10',
-          
         },
         tabBarIndicatorStyle: {
             backgroundColor: '#BC95F7',

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet, TouchableOpacity, Alert } from "react-native";
+import { Text, View, StyleSheet, TouchableOpacity, Alert, Image } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { AntDesign, Ionicons, Entypo, Feather } from '@expo/vector-icons';
 
@@ -8,7 +8,7 @@ const Setting = () => {
     const handleBack = () => {
         navigation.goBack();
     };
-    const handleNothing = () =>{
+    const handleNothing = () => {
         Alert.alert('Chưa làm được')
     }
     const handleLogout = () => {
@@ -111,7 +111,7 @@ const Setting = () => {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate('Setting')}>
+                <TouchableOpacity onPress={handleNothing }>
                     <View style={styles.anothermid}>
                         <Text style={styles.text1}>
                             Hệ thống
@@ -134,6 +134,25 @@ const Setting = () => {
                 </TouchableOpacity>
             </View>
 
+            <View style={styles.name1}>
+                <View style={styles.logo}>
+                    <Image
+                        source={require('../../assets/img/taihen-logo.png')}
+                        style={styles.img}
+                        resizeMode="cover"
+                    />
+                    <Text style={styles.text2}>
+                        TAIHEN TEAM
+                    </Text>
+                </View>
+                <View style={styles.version}>
+                    <Text style={styles.text3}>
+                        Trixter v0.1 ⓑⓔⓣⓐ
+                    </Text>
+                </View>
+
+            </View>
+
             <TouchableOpacity onPress={(handleLogout)}>
                 <View style={styles.logout}>
                     <Text style={styles.textlogout}>
@@ -150,7 +169,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#0E0E10',
     },
-
     main: {
         flex: 1,
         backgroundColor: '#0E0E10',
@@ -186,7 +204,7 @@ const styles = StyleSheet.create({
     },
     big: {
         height: 70,
-        paddingBottom:8,
+        paddingBottom: 10,
     },
     iconContainer: {
         backgroundColor: '#8304B2',
@@ -211,17 +229,17 @@ const styles = StyleSheet.create({
     },
     text1: {
         flex: 1,
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: 'bold',
         color: '#EAEAEC',
-        marginLeft: 10,
+        marginLeft: 15,
     },
     textup: {
-        marginTop: 10
+        marginTop: 13
     },
     textdown: {
         color: '#A6A5AA',
-        marginLeft: 10,
+        marginLeft: 15,
     },
     iconContainer1: {
         paddingLeft: 30,
@@ -239,7 +257,7 @@ const styles = StyleSheet.create({
     },
     anothertop: {
         backgroundColor: '#18171C',
-        height: 60,
+        height: 50,
         flexDirection: 'row',
         alignItems: 'center',
         borderBottomColor: '#2F2F33',
@@ -249,7 +267,7 @@ const styles = StyleSheet.create({
     },
     anothermid: {
         backgroundColor: '#18171C',
-        height: 60,
+        height: 50,
         flexDirection: 'row',
         alignItems: 'center',
         borderBottomColor: '#2F2F33',
@@ -257,7 +275,7 @@ const styles = StyleSheet.create({
     },
     anotherbot: {
         backgroundColor: '#18171C',
-        height: 60,
+        height: 50,
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: 1,
@@ -272,19 +290,50 @@ const styles = StyleSheet.create({
     textlogout: {
         fontSize: 20,
         fontWeight: 'bold',
-        fontFamily:'Helvetica',
+        fontFamily: 'Helvetica',
         color: '#EAEAEC',
         paddingTop: 15,
     },
     logout: {
         backgroundColor: '#18171C',
-        height: 60,
+        height: 55,
         alignItems: 'center',
         borderWidth: 1,
-        borderRadius:10,
-        marginLeft:10,
-        marginRight:10,
-        marginBottom:20,
+        borderRadius: 10,
+        marginLeft: 10,
+        marginRight: 10,
+        marginBottom: 20,
+    },
+    img: {
+        width: 185 * 0.3,
+        height: 189 * 0.3,
+    },
+    name1: {
+        marginBottom: 70
+    },
+    logo: {
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "row",
+    },
+    version: {
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    text2: {
+        color: '#AB9C9C',
+        fontSize: 40,
+        fontWeight: '900',
+        fontFamily: 'Courier New',
+        marginTop: 14,
+        marginLeft: 20,
+    },
+    text3: {
+        color: '#A6A5AA',
+        fontSize: 15,
+        fontWeight: '900',
+        fontFamily: 'Courier New',
+        marginTop: 10
     }
 });
 
