@@ -8,6 +8,9 @@ const Setting = () => {
     const handleBack = () => {
         navigation.goBack();
     };
+    const handleNothing = () =>{
+        Alert.alert('Chưa làm được')
+    }
     const handleLogout = () => {
         Alert.alert(
             'Xác nhận',
@@ -38,8 +41,8 @@ const Setting = () => {
                     <Text style={styles.text}>Cài đặt</Text>
                 </View>
 
-                <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
-                    <View style={styles.anothertop}>
+                <TouchableOpacity onPress={handleNothing}>
+                    <View style={[styles.anothertop, styles.big]}>
                         <View style={styles.viewtext1}>
                             <Text style={[styles.text1, styles.textup]}>
                                 Tài khoản
@@ -48,17 +51,32 @@ const Setting = () => {
                                 Hồ sơ, Amazon Prime
                             </Text>
                         </View>
-
                         <View style={styles.icon}>
                             <AntDesign name="right" size={20} color="#EAEAEC" />
                         </View>
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+                <TouchableOpacity onPress={handleNothing}>
+                    <View style={[styles.anothermid, styles.big]}>
+                        <View style={styles.viewtext1}>
+                            <Text style={[styles.text1, styles.textup]}>
+                                Tuỳ chọn
+                            </Text>
+                            <Text style={styles.textdown}>
+                                Chủ đề màu tối, phát lại
+                            </Text>
+                        </View>
+                        <View style={styles.icon}>
+                            <AntDesign name="right" size={20} color="#EAEAEC" />
+                        </View>
+                    </View>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={handleNothing}>
                     <View style={styles.anothermid}>
                         <Text style={styles.text1}>
-                            Quà tặng & phần thưởng
+                            Thông báo
                         </Text>
                         <View style={styles.icon}>
                             <AntDesign name="right" size={20} color="#EAEAEC" />
@@ -66,32 +84,26 @@ const Setting = () => {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
-                    <View style={styles.anothermid}>
-                        <Text style={styles.text1}>
-                            Quà tặng & phần thưởng
-                        </Text>
+                <TouchableOpacity onPress={handleNothing}>
+                    <View style={[styles.anothermid, styles.big]}>
+                        <View style={styles.viewtext1}>
+                            <Text style={[styles.text1, styles.textup]}>
+                                Bảo mật & Quyền riêng tư
+                            </Text>
+                            <Text style={styles.textdown}>
+                                Liên hệ, Mật khẩu, Người dùng bị chặn
+                            </Text>
+                        </View>
                         <View style={styles.icon}>
                             <AntDesign name="right" size={20} color="#EAEAEC" />
                         </View>
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+                <TouchableOpacity onPress={handleNothing}>
                     <View style={styles.anothermid}>
                         <Text style={styles.text1}>
-                            Quà tặng & phần thưởng
-                        </Text>
-                        <View style={styles.icon}>
-                            <AntDesign name="right" size={20} color="#EAEAEC" />
-                        </View>
-                    </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
-                    <View style={styles.anothermid}>
-                        <Text style={styles.text1}>
-                            Cài đặt
+                            Đề xuất
                         </Text>
                         <View style={styles.icon}>
                             <AntDesign name="right" size={20} color="#EAEAEC" />
@@ -102,7 +114,7 @@ const Setting = () => {
                 <TouchableOpacity onPress={() => navigation.navigate('Setting')}>
                     <View style={styles.anothermid}>
                         <Text style={styles.text1}>
-                            Cài đặt
+                            Hệ thống
                         </Text>
                         <View style={styles.icon}>
                             <AntDesign name="right" size={20} color="#EAEAEC" />
@@ -110,10 +122,10 @@ const Setting = () => {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+                <TouchableOpacity onPress={handleNothing}>
                     <View style={styles.anotherbot}>
                         <Text style={styles.text1}>
-                            Diện mạo
+                            Trợ giúp & Pháp lý
                         </Text>
                         <View style={styles.icon}>
                             <AntDesign name="right" size={20} color="#EAEAEC" />
@@ -121,15 +133,14 @@ const Setting = () => {
                     </View>
                 </TouchableOpacity>
             </View>
+
             <TouchableOpacity onPress={(handleLogout)}>
                 <View style={styles.logout}>
                     <Text style={styles.textlogout}>
                         Đăng xuất
                     </Text>
                 </View>
-
             </TouchableOpacity>
-
         </View>
     );
 };
@@ -137,7 +148,7 @@ const Setting = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#0E0E10'
+        backgroundColor: '#0E0E10',
     },
 
     main: {
@@ -172,6 +183,10 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         textAlignVertical: 'center',
         fontSize: 20
+    },
+    big: {
+        height: 70,
+        paddingBottom:8,
     },
     iconContainer: {
         backgroundColor: '#8304B2',
@@ -257,16 +272,19 @@ const styles = StyleSheet.create({
     textlogout: {
         fontSize: 20,
         fontWeight: 'bold',
+        fontFamily:'Helvetica',
         color: '#EAEAEC',
-        paddingTop:15,
+        paddingTop: 15,
     },
     logout: {
         backgroundColor: '#18171C',
-        height: 70,
+        height: 60,
         alignItems: 'center',
         borderWidth: 1,
-        borderBottomLeftRadius: 15,
-        borderBottomRightRadius: 15,
+        borderRadius:10,
+        marginLeft:10,
+        marginRight:10,
+        marginBottom:20,
     }
 });
 
