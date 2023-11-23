@@ -18,13 +18,14 @@ import Setting from './Components/User/Setting';
 import Intro from './Components/Account/Intro';
 import Theme from './Components/User/InsideSetting/Theme'
 import ISAccount from './Components/User/InsideSetting/ISAccount';
+import Signup from './Components/Account/Signup';
 
 const Stack = createStackNavigator();
 export default function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator>
-        {/* <Stack.Screen name="Main" component={Setting} options={{headerShown:false}}/>   */}
+        <Stack.Screen name="Main" component={Intro} options={{headerShown:false}}/>  
         <Stack.Screen name="NavBOT" component={NavBOT} options={{headerShown:false}}/>
         <Stack.Screen name="Account" component={Account} options={{headerShown:false}}/>
         <Stack.Screen name="Chualam" component={Chualam} options={{headerShown:false}}/>
@@ -34,6 +35,7 @@ export default function App() {
         <Stack.Screen name="Setting" component={Setting} options={{headerShown:false}}/>
         <Stack.Screen name="Mychannel" component={Mychannel} options={{headerShown:false}}/>
         <Stack.Screen name="Login" component={Login} options={{headerShown:false}}/>
+        <Stack.Screen name="Signup" component={Signup} options={{headerShown:false}}/>
         <Stack.Screen name="ISAccount" component={ISAccount} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>

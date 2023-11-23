@@ -102,7 +102,7 @@ const Intro = () => {
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                <TouchableOpacity onPress={() => navigation.navigate('Signup')}>
                     <View style={styles.button1}>
                         <Text style={styles.text5}>
                             Đăng ký

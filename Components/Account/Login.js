@@ -3,6 +3,8 @@ import { View, TextInput, Alert, StyleSheet, Text, TouchableOpacity, Keyboard, A
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import * as FileSystem from 'expo-file-system';
+
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -27,14 +29,24 @@ const Login = () => {
         setIsFocused('');
     };
 
-    const handleLogin = () => {
-        if (username === 'admin' && password === '123') {
-            Alert.alert('Đăng nhập thành công')
+    const handleLogin = async () => {
+        try {
+          const fileUri = FileSystem.documentDirectory + 'users.json';
+          const fileContent = await FileSystem.readAsStringAsync(fileUri);
+      
+          const users = JSON.parse(fileContent);
+      
+          const user = users.find(u => u.username === username && u.password === password);
+          if (user) {
+            Alert.alert('Đăng nhập thành công');
             navigation.navigate('NavBOT');
-        } else {
-            Alert.alert('Sai rồi đéo vào được');
+          } else {
+            Alert.alert('Đăng nhập thất bại');
+          }
+        } catch (error) {
+          console.error('Lỗi khi đọc tệp users.json:', error);
         }
-    };
+      };
     const toggleSecureTextEntry = () => {
         setSecureTextEntry((prevValue) => !prevValue);
     };
