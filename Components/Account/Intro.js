@@ -110,7 +110,14 @@ const Intro = () => {
                     </View>
                 </TouchableOpacity>
             </View>
-
+            
+            <TouchableOpacity onPress={() => navigation.navigate('Userlist')}>
+                <View style={styles.button2}>
+                    <Text style={styles.text4}>
+                        Các tài khoản
+                    </Text>
+                </View>
+            </TouchableOpacity>
         </View>
     );
 };
@@ -150,6 +157,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 10
+    },
+    button2: {
+        backgroundColor: '#A063FF',
+        height: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 10,
+        marginLeft:100,
+        marginRight:100,
+        marginTop:20
     },
     text: {
         color: 'white',
