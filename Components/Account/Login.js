@@ -11,6 +11,7 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [secureTextEntry, setSecureTextEntry] = useState(true);
     const [animatedValue] = useState(new Animated.Value(0));
+    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
     const navigation = useNavigation();
     const handleDone = () => {
@@ -74,7 +75,6 @@ const Login = () => {
         };
     }, [animatedValue]);
 
-    const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
     const handleUsernameChange = (text) => {
         setUsername(text);
