@@ -5,18 +5,16 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import Account from './Components/User/Account';
 import { NavigationContainer } from '@react-navigation/native';
 import NavBOT from './Components/Home/NavBOT';
-import Dienmao from './Components/User/Dienmao';
 import Chualam from './Components/User/Chualam';
 import Notification from './Components/Home/Notification/Notification';
 import NotificationST from './Components/Home/Notification/NotificationST';
 import NavTOP from './Components/Home/NavTOP';
 import Login from './Components/Account/Login';
-import Motinor from './Components/Motinor/Motinor';
 import Profile from './Components/User/Profile';
 import Mychannel from './Components/User/Mychannel';
 import Setting from './Components/User/Setting';
 import Intro from './Components/Account/Intro';
-import Theme from './Components/User/InsideSetting/Theme'
+// import Theme from './Components/User/InsideSetting/Theme'
 import ISAccount from './Components/User/InsideSetting/ISAccount';
 import Signup from './Components/Account/Signup';
 import UserList from './Components/Account/UserList';
@@ -26,7 +24,7 @@ export default function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Main" component={NavBOT} options={{headerShown:false}}/>  
+        <Stack.Screen name="Main" component={Intro} options={{headerShown:false}}/>  
         <Stack.Screen name="NavBOT" component={NavBOT} options={{headerShown:false}}/>
         <Stack.Screen name="Account" component={Account} options={{headerShown:false}}/>
         <Stack.Screen name="Chualam" component={Chualam} options={{headerShown:false}}/>

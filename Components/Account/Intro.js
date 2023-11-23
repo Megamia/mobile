@@ -111,7 +111,7 @@ const Intro = () => {
                 </TouchableOpacity>
             </View>
             
-            <TouchableOpacity onPress={() => navigation.navigate('Userlist')}>
+            <TouchableOpacity onPress={() => navigation.navigate('UserList')}>
                 <View style={styles.button2}>
                     <Text style={styles.text4}>
                         Các tài khoản
