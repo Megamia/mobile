@@ -41,7 +41,7 @@ const Setting = () => {
                     <Text style={styles.text}>Cài đặt</Text>
                 </View>
 
-                <TouchableOpacity onPress={handleNothing}>
+                <TouchableOpacity onPress={()=> navigation.navigate('ISAccount')}>
                     <View style={[styles.anothertop, styles.big]}>
                         <View style={styles.viewtext1}>
                             <Text style={[styles.text1, styles.textup]}>
