@@ -41,10 +41,10 @@ const Login = () => {
             Alert.alert('Đăng nhập thành công');
             navigation.navigate('NavBOT');
           } else {
-            Alert.alert('Đăng nhập thất bại');
+            Alert.alert('Sai tài khoản hoặc mật khẩu');
           }
         } catch (error) {
-          console.error('Lỗi khi đọc tệp users.json:', error);
+            Alert.alert('Tài khoản không tồn tại!');
         }
       };
     const toggleSecureTextEntry = () => {

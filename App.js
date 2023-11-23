@@ -19,6 +19,7 @@ import Intro from './Components/Account/Intro';
 import Theme from './Components/User/InsideSetting/Theme'
 import ISAccount from './Components/User/InsideSetting/ISAccount';
 import Signup from './Components/Account/Signup';
+import UserList from './Components/Account/UserList';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
         <Stack.Screen name="Mychannel" component={Mychannel} options={{headerShown:false}}/>
         <Stack.Screen name="Login" component={Login} options={{headerShown:false}}/>
         <Stack.Screen name="Signup" component={Signup} options={{headerShown:false}}/>
+        <Stack.Screen name="UserList" component={UserList} options={{headerShown:false}}/>
         <Stack.Screen name="ISAccount" component={ISAccount} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
