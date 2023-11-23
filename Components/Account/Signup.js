@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { View, TextInput, Alert, StyleSheet, Text, TouchableOpacity, Keyboard, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, Feather } from '@expo/vector-icons';
 import { Linking } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import * as FileSystem from 'expo-file-system';
 
 const Signup = () => {
     const navigation = useNavigation();
+    const handleGoBack = () =>{
+        navigation.goBack();
+    }
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [animatedValue] = useState(new Animated.Value(0));
@@ -104,6 +107,11 @@ const Signup = () => {
     return (
         <View style={styles.container}>
             <View style={styles.viewtitle}>
+                <TouchableOpacity style={styles.icon} onPress={handleGoBack}>
+                    <View style={styles.viewicon}>
+                        <Feather name="chevron-left" size={24} color="white" />
+                    </View>
+                </TouchableOpacity>
                 <Text style={styles.title}>
                     Đăng ký
                 </Text>
@@ -194,10 +202,13 @@ const styles = StyleSheet.create({
     viewtitle: {
         marginTop: 45,
         alignItems: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'row'
     },
     title: {
         color: 'white',
         fontSize: 30,
+        marginRight: 130
     },
     viewform: {
         flex: 1,

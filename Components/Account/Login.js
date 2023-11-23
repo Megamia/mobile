@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, TextInput, Alert, StyleSheet, Text, TouchableOpacity, Keyboard, Animated } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, Feather } from '@expo/vector-icons';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import * as FileSystem from 'expo-file-system';
 
@@ -14,7 +14,7 @@ const Login = () => {
     const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
     const navigation = useNavigation();
-    const handleDone = () => {
+    const handleGoBack = () => {
         navigation.goBack();
     };
     const [isFocused, setIsFocused] = useState('');
@@ -32,22 +32,22 @@ const Login = () => {
 
     const handleLogin = async () => {
         try {
-          const fileUri = FileSystem.documentDirectory + 'users.json';
-          const fileContent = await FileSystem.readAsStringAsync(fileUri);
-      
-          const users = JSON.parse(fileContent);
-      
-          const user = users.find(u => u.username === username && u.password === password);
-          if (user) {
-            Alert.alert('Đăng nhập thành công');
-            navigation.navigate('NavBOT');
-          } else {
-            Alert.alert('Sai tài khoản hoặc mật khẩu');
-          }
+            const fileUri = FileSystem.documentDirectory + 'users.json';
+            const fileContent = await FileSystem.readAsStringAsync(fileUri);
+
+            const users = JSON.parse(fileContent);
+
+            const user = users.find(u => u.username === username && u.password === password);
+            if (user) {
+                Alert.alert('Đăng nhập thành công');
+                navigation.navigate('NavBOT');
+            } else {
+                Alert.alert('Sai tài khoản hoặc mật khẩu');
+            }
         } catch (error) {
             Alert.alert('Tài khoản không tồn tại!');
         }
-      };
+    };
     const toggleSecureTextEntry = () => {
         setSecureTextEntry((prevValue) => !prevValue);
     };
@@ -94,6 +94,11 @@ const Login = () => {
     return (
         <View style={styles.container}>
             <View style={styles.viewtitle}>
+                <TouchableOpacity style={styles.icon} onPress={handleGoBack}>
+                    <View style={styles.viewicon}>
+                        <Feather name="chevron-left" size={24} color="white" />
+                    </View>
+                </TouchableOpacity>
                 <Text style={styles.title}>
                     Đăng nhập
                 </Text>
@@ -168,10 +173,13 @@ const styles = StyleSheet.create({
     viewtitle: {
         marginTop: 45,
         alignItems: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'row'
     },
     title: {
         color: 'white',
         fontSize: 30,
+        marginRight: 100
     },
     viewform: {
         flex: 1,
