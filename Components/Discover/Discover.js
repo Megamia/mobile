@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, FlatList, Alert } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, FlatList, Alert, Image } from 'react-native';
 import NavTOP from '../Home/NavTOP';
-import { FontAwesome  } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 const Discover = ({ navigation }) => {
   const handlePress = () => {
@@ -12,35 +12,43 @@ const Discover = ({ navigation }) => {
     { id: 2, icon: 'trophy', name: 'Esports' },
     { id: 3, icon: 'music', name: 'Nhạc' },
     { id: 4, icon: 'microphone', name: 'Người thực hiện' },
-    { id: 5, icon: 'pencil-square-o', name: 'Creative'},
+    { id: 5, icon: 'pencil-square-o', name: 'Creative' },
   ];
-  const renderlisttheme = ({ item }) => (
-    <TouchableOpacity onPress={handlePress} >
-      <View style={styles.view}>
-            <Text style={styles.text} numberOfLines={1} ellipsizeMode="tail">{item.name}</Text>
-            <View style={styles.viewicon}>
-              <FontAwesome name={item.icon} style={styles.icon} />
-            </View>
-          </View>
-        </TouchableOpacity>
-  );
 
   const listchannel = [
-    { id: 1, icon: 'gamepad', name: 'Game' },
-    { id: 2, icon: 'trophy', name: 'Esports' },
-    { id: 3, icon: 'music', name: 'Nhạc' },
-    { id: 4, icon: 'microphone', name: 'Người thực hiện' },
-    { id: 5, icon: 'pencil-square-o', name: 'Creative'},
+    { id: 1, userimg: require('../../assets/img/tenha-user.png'), username: 'Tenha', video: require('../../assets/gif/honkai-star-rail-combat-system-8.gif') },
+    { id: 2, userimg: require('../../assets/img/maichuxo-user.png'), nausernameme: 'maichuxo', video: require('../../assets/gif/minecraft.gif') },
+    { id: 3, userimg: require('../../assets/img/Ayellol-user.png'), username: 'Ayellol', video: require('../../assets/gif/lol-lesin.gif') },
+    { id: 4, userimg: require('../../assets/img/ProfessionalPridER.png'), username: 'ProfessionalPridER', video: require('../../assets/gif/genshincombat.gif') },
   ];
   const renderlistchannel = ({ item }) => (
-    <TouchableOpacity onPress={handlePress} >
-      <View style={styles.view}>
-            <Text style={styles.text} numberOfLines={1} ellipsizeMode="tail">{item.name}</Text>
-            <View style={styles.viewicon}>
-              <FontAwesome name={item.icon} style={styles.icon} />
-            </View>
+    <View style={styles.streamchannel}>
+      <View>
+        <Image
+          source={item.video}
+          style={styles.videostream}
+          resizeMode="cover"
+        />
+        <View style={styles.streambox}><Text style={styles.streamtextbox}>TRỰC TIẾP</Text></View>
+        <View style={styles.viewers}><Text style={styles.viewerstext}>4.490 người xem</Text></View>
+      </View>
+      <View style={styles.detail}>
+        <Image
+          source={item.userimg}
+          style={styles.imguser}
+          resizeMode="cover"
+        />
+        <View>
+          <Text style={styles.username}>{item.username}</Text>
+          <Text style={styles.content}>HSR Genshin dailies and OW after</Text>
+          <Text style={styles.category}>Honkai: Star Rail</Text>
+          <View style={styles.tag}>
+            <View style={styles.tagbox}><Text style={styles.tagtext}>English</Text></View>
+            <View style={styles.tagbox}><Text style={styles.tagtext}>Anime</Text></View>
           </View>
-        </TouchableOpacity>
+        </View>
+      </View>
+    </View>
   );
 
   return (
@@ -48,16 +56,57 @@ const Discover = ({ navigation }) => {
       <View style={styles.top}>
         <NavTOP />
       </View>
-      <ScrollView>
-      <FlatList horizontal style={styles.FlatList1}
-              data={listtheme}
-              renderItem={renderlisttheme}
-              pagingEnabled
-              showsHorizontalScrollIndicator={false}
-      />
-      <View style={styles.titleview}>
-        <Text style={styles.titletext}>Các kênh trực tiếp chúng tôi nghĩ bạn sẽ thích</Text>
-      </View>
+      <ScrollView style={styles.ScrollView}>
+        <ScrollView horizontal style={styles.ScrollView1} showsHorizontalScrollIndicator={false}>
+        <View style={styles.viewbegin}/>
+          {listtheme.map((item) => (
+            <TouchableOpacity key={item.id} onPress={handlePress}>
+              <View style={styles.view}>
+                <Text style={styles.text} numberOfLines={1} ellipsizeMode="tail">
+                  {item.name}
+                </Text>
+                <View style={styles.viewicon}>
+                  <FontAwesome name={item.icon} style={styles.icon} />
+                </View>
+              </View>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+        <View style={styles.titleview}>
+          <Text style={styles.titletext}>Các kênh trực tiếp chúng tôi nghĩ bạn sẽ thích</Text>
+        </View>
+        <ScrollView horizontal style={styles.ScrollView1} showsHorizontalScrollIndicator={false}>
+        <View style={styles.viewbegin}/>
+          {listchannel.map((item) => (
+             <View style={styles.streamchannel}>
+             <View>
+               <Image
+                 source={item.video}
+                 style={styles.videostream}
+                 resizeMode="cover"
+               />
+               <View style={styles.streambox}><Text style={styles.streamtextbox}>TRỰC TIẾP</Text></View>
+               <View style={styles.viewers}><Text style={styles.viewerstext}>4.490 người xem</Text></View>
+             </View>
+             <View style={styles.detail}>
+               <Image
+                 source={item.userimg}
+                 style={styles.imguser}
+                 resizeMode="cover"
+               />
+               <View>
+                 <Text style={styles.username}>{item.username}</Text>
+                 <Text style={styles.content} numberOfLines={1} ellipsizeMode="tail">HSR Genshin dailies and OW after</Text>
+                 <Text style={styles.category}>Honkai: Star Rail</Text>
+                 <View style={styles.tag}>
+                   <View style={styles.tagbox}><Text style={styles.tagtext}>English</Text></View>
+                   <View style={styles.tagbox}><Text style={styles.tagtext}>Anime</Text></View>
+                 </View>
+               </View>
+             </View>
+           </View>
+          ))}
+        </ScrollView>
       </ScrollView>
     </View>
   );
@@ -79,10 +128,10 @@ const styles = StyleSheet.create({
   view: {
     backgroundColor: '#782CE8',
     flexDirection: 'row',
-    width:150,
+    width: 170,
     justifyContent: 'space-between',
-    paddingHorizontal: 15,
-    paddingVertical: 5,
+    paddingHorizontal: 18,
+    paddingVertical: 7,
     borderRadius: 5,
     marginRight: 15,
   },
@@ -90,23 +139,93 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  FlatList1: {
+  ScrollView1: {
     marginVertical: 10,
-    marginLeft: 15,
   },
-  icon:{
+  viewbegin:{
+    marginRight: 15,
+  },
+  icon: {
     fontSize: 24,
     color: 'white',
   },
-  titleview:{
-    margin: 15,
+  titleview: {
+    marginHorizontal: 15,
+    marginTop: 15,
+    marginBottom: 5,
   },
-  titletext:{
+  titletext: {
     color: 'white',
     fontSize: 20,
     fontWeight: 'bold'
-
-  }
+  },
+  streamchannel:
+  {
+    paddingBottom: 12,
+    paddingRight :15,
+  },
+  videostream: {
+    width: 390 * 0.7,
+    height: 220 * 0.7,
+    objectFit: 'cover',
+  },
+  streambox: {
+    backgroundColor: 'red',
+    borderRadius: 5,
+    position: 'absolute',
+    top: 7,
+    left: 7,
+  },
+  streamtextbox: {
+    color: 'white',
+    fontWeight: 'bold',
+    paddingTop: 2,
+    paddingBottom: 2,
+    paddingLeft: 5,
+    paddingRight: 5,
+  },
+  viewers: {
+    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    borderRadius: 5,
+    position: 'absolute',
+    bottom: 7,
+    left: 7,
+  },
+  viewerstext: {
+    color: 'white',
+    paddingTop: 2,
+    paddingBottom: 2,
+    paddingLeft: 5,
+    paddingRight: 5,
+  },
+  detail: {
+    paddingTop: 7,
+    paddingRight: 15,
+    flexDirection: 'row',
+  },
+  imguser: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 7,
+  },
+  username: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+    paddingBottom: 2,
+  },
+  content: {
+    color: '#A8A7B0',
+    fontSize: 18,
+    paddingBottom: 2,
+    width: 200
+  },
+  category: {
+    color: '#A8A7B0',
+    fontSize: 18,
+    paddingBottom: 5,
+  },
 });
 
 export default Discover;

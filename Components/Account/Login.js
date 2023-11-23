@@ -203,7 +203,7 @@ const styles = StyleSheet.create({
         fontSize: 25,
     },
     viewbtn: {
-        marginTop: 20,
+        marginTop: 90,
         height: 50,
         backgroundColor: '#3E3E40',
         borderRadius: 7,

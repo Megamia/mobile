@@ -227,6 +227,7 @@ const styles = StyleSheet.create({
         // marginBottom:30
     },
     rules: {
+        marginTop: 10,
         paddingLeft: 10,
     },
     viewrules: {
@@ -247,7 +248,7 @@ const styles = StyleSheet.create({
         fontSize: 25,
     },
     viewbtn: {
-        marginTop: 90,
+        marginTop: 30,
         height: 50,
         backgroundColor: '#3E3E40',
         borderRadius: 7,
