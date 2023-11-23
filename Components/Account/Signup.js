@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
     },
     viewrules: {
-        top:3
+        top: 3
     },
     textrules: {
         color: '#A063FF',
