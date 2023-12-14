@@ -25,7 +25,7 @@ const UserList = () => {
       const fileContent = await FileSystem.readAsStringAsync(fileUri);
       let users = JSON.parse(fileContent);
   
-      const adminIndex = users.findIndex(user => user.username === 'admin');
+      const adminIndex = users.findIndex(user => user.username === 'Admin');
       if (adminIndex === -1) {
         const adminUser = { username: 'Admin', password: '123' };
         users.unshift(adminUser); 
@@ -75,7 +75,7 @@ const UserList = () => {
             <Text style={styles.username}>{user.username}</Text>
             <Text style={styles.password}>{user.password}</Text>
           </View>
-          {user.username !== 'admin' && (
+          {user.username !== 'Admin' && (
             <View style={styles.delete}>
               <TouchableOpacity onPress={() => handleDeleteUser(user.username)}>
                 <View style={styles.button}>
