@@ -20,7 +20,7 @@ export default function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Intro" component={Intro} options={{headerShown:false}}/>  
+        <Stack.Screen name="Main" component={Intro} options={{headerShown:false}}/>  
         <Stack.Screen name="NavBOT" component={NavBOT} options={{headerShown:false}}/>
         <Stack.Screen name="Account" component={Account} options={{headerShown:false}}/>
         <Stack.Screen name="Chualam" component={Chualam} options={{headerShown:false}}/>
