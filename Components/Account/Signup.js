@@ -29,7 +29,7 @@ const Signup = () => {
 
             await saveUsersToJSON(users);
             Alert.alert('Đăng ký thành công');
-            navigation.navigate('Intro');
+            handleGoBack();
         }
     };
 
