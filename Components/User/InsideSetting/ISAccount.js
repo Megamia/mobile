@@ -16,7 +16,7 @@ const ISAccount = () => {
             <View style={styles.main}>
                 <View style={styles.title}>
                     <TouchableOpacity style={styles.buttonback} onPress={handleBack}>
-                        <Feather name="chevron-left" size={24} color="white" />
+                        <AntDesign name="left" size={24} color="white" />
                     </TouchableOpacity>
                     <Text style={styles.text}>Tài khoản</Text>
                 </View>
@@ -32,7 +32,7 @@ const ISAccount = () => {
                             </Text>
                         </View>
                         <View style={styles.icon}>
-                            <AntDesign name="right" size={24} color="#57575C" />
+                            <AntDesign name="right" size={24} color="white" />
                         </View>
                     </View>
                 </TouchableOpacity>

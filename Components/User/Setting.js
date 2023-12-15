@@ -36,12 +36,12 @@ const Setting = () => {
             <View style={styles.main}>
                 <View style={styles.account}>
                     <TouchableOpacity style={styles.buttonback} onPress={handleBack}>
-                        <Feather name="chevron-left" size={24} color="white" />
+                        <AntDesign name="left" size={24} color="white" />
                     </TouchableOpacity>
                     <Text style={styles.text}>Cài đặt</Text>
                 </View>
 
-                <TouchableOpacity onPress={()=> navigation.navigate('ISAccount')}>
+                <TouchableOpacity onPress={() => navigation.navigate('ISAccount')}>
                     <View style={[styles.anothertop, styles.big]}>
                         <View style={styles.viewtext1}>
                             <Text style={[styles.text1, styles.textup]}>
@@ -52,7 +52,7 @@ const Setting = () => {
                             </Text>
                         </View>
                         <View style={styles.icon}>
-                            <AntDesign name="right" size={20} color="#EAEAEC" />
+                            <AntDesign name="right" size={24} color="white" />
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -68,7 +68,7 @@ const Setting = () => {
                             </Text>
                         </View>
                         <View style={styles.icon}>
-                            <AntDesign name="right" size={20} color="#EAEAEC" />
+                            <AntDesign name="right" size={24} color="white" />
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -79,7 +79,7 @@ const Setting = () => {
                             Thông báo
                         </Text>
                         <View style={styles.icon}>
-                            <AntDesign name="right" size={20} color="#EAEAEC" />
+                            <AntDesign name="right" size={24} color="white" />
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -95,7 +95,7 @@ const Setting = () => {
                             </Text>
                         </View>
                         <View style={styles.icon}>
-                            <AntDesign name="right" size={20} color="#EAEAEC" />
+                            <AntDesign name="right" size={24} color="white" />
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -106,18 +106,18 @@ const Setting = () => {
                             Đề xuất
                         </Text>
                         <View style={styles.icon}>
-                            <AntDesign name="right" size={20} color="#EAEAEC" />
+                            <AntDesign name="right" size={24} color="white" />
                         </View>
                     </View>
                 </TouchableOpacity>
 
-                <TouchableOpacity onPress={handleNothing }>
+                <TouchableOpacity onPress={handleNothing}>
                     <View style={styles.anothermid}>
                         <Text style={styles.text1}>
                             Hệ thống
                         </Text>
                         <View style={styles.icon}>
-                            <AntDesign name="right" size={20} color="#EAEAEC" />
+                            <AntDesign name="right" size={24} color="white" />
                         </View>
                     </View>
                 </TouchableOpacity>
@@ -128,7 +128,7 @@ const Setting = () => {
                             Trợ giúp & Pháp lý
                         </Text>
                         <View style={styles.icon}>
-                            <AntDesign name="right" size={20} color="#EAEAEC" />
+                            <AntDesign name="right" size={24} color="white" />
                         </View>
                     </View>
                 </TouchableOpacity>

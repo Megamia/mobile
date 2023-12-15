@@ -49,7 +49,7 @@ const Account = () => {
               Gói đăng ký theo dõi
             </Text>
             <View style={styles.icon}>
-              <AntDesign name="right" size={20} color="white" />
+              <AntDesign name="right" size={24} color="white" />
             </View>
           </View>
         </TouchableOpacity>
@@ -63,7 +63,7 @@ const Account = () => {
               Quà tặng & phần thưởng
             </Text>
             <View style={styles.icon}>
-              <AntDesign name="right" size={20} color="white" />
+              <AntDesign name="right" size={24} color="white" />
             </View>
           </View>
 
@@ -78,7 +78,7 @@ const Account = () => {
               Cài đặt
             </Text>
             <View style={styles.icon}>
-              <AntDesign name="right" size={20} color="white" />
+              <AntDesign name="right" size={24} color="white" />
             </View>
           </View>
         </TouchableOpacity>
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   text1: {
-    flex:1,
+    flex: 1,
     fontSize: 20,
     fontWeight: 'bold',
     color: 'white',
@@ -206,11 +206,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
-    justifyContent:'space-between'
+    justifyContent: 'space-between'
   },
   icon: {
-justifyContent:'flex-end',
-marginRight:20,
+    justifyContent: 'flex-end',
+    marginRight: 20,
   }
 });
 

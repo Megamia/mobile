@@ -13,7 +13,7 @@ const Notification = () => {
         <View style={styles.container}>
             <View style={styles.head}>
                 <TouchableOpacity style={styles.iconL} onPress={handleBack}>
-                    <AntDesign name="left" size={20} color="white" />
+                    <AntDesign name="left" size={24} color="white" />
                 </TouchableOpacity>
                 <Text style={styles.text}>Thông báo</Text>
                 <TouchableOpacity style={styles.iconR} onPress={() => navigation.navigate('NotificationST')}>

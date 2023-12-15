@@ -18,23 +18,23 @@ import ISFixProfile from './Components/User/InsideSetting/InsideFixProfile/ISFix
 
 const Stack = createStackNavigator();
 export default function App() {
-  return(
+  return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Intro" component={Intro} options={{headerShown:false}}/>  
-        <Stack.Screen name="NavBOT" component={NavBOT} options={{headerShown:false}}/>
-        <Stack.Screen name="Account" component={Account} options={{headerShown:false}}/>
-        <Stack.Screen name="Chualam" component={Chualam} options={{headerShown:false}}/>
-        <Stack.Screen name="Notification" component={Notification} options={{headerShown:false}}/>
-        <Stack.Screen name="NotificationST" component={NotificationST} options={{headerShown:false}}/>
-        <Stack.Screen name="Profile" component={Profile} options={{headerShown:false}}/>
-        <Stack.Screen name="Setting" component={Setting} options={{headerShown:false}}/>
-        <Stack.Screen name="Mychannel" component={Mychannel} options={{headerShown:false}}/>
-        <Stack.Screen name="Login" component={Login} options={{headerShown:false}}/>
-        <Stack.Screen name="Signup" component={Signup} options={{headerShown:false}}/>
-        <Stack.Screen name="UserList" component={UserList} options={{headerShown:false}}/>
-        <Stack.Screen name="ISAccount" component={ISAccount} options={{headerShown:false}}/>
-        <Stack.Screen name="ISFixProfile" component={ISFixProfile} options={{headerShown:false}}/>
+        <Stack.Screen name="Intro" component={Intro} options={{ headerShown: false }} />
+        <Stack.Screen name="NavBOT" component={NavBOT} options={{ headerShown: false }} />
+        <Stack.Screen name="Account" component={Account} options={{ headerShown: false }} />
+        <Stack.Screen name="Chualam" component={Chualam} options={{ headerShown: false }} />
+        <Stack.Screen name="Notification" component={Notification} options={{ headerShown: false }} />
+        <Stack.Screen name="NotificationST" component={NotificationST} options={{ headerShown: false }} />
+        <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
+        <Stack.Screen name="Setting" component={Setting} options={{ headerShown: false }} />
+        <Stack.Screen name="Mychannel" component={Mychannel} options={{ headerShown: false }} />
+        <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
+        <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false }} />
+        <Stack.Screen name="UserList" component={UserList} options={{ headerShown: false }} />
+        <Stack.Screen name="ISAccount" component={ISAccount} options={{ headerShown: false }} />
+        <Stack.Screen name="ISFixProfile" component={ISFixProfile} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
