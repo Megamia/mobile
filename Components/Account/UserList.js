@@ -22,8 +22,29 @@ const UserList = () => {
   const getUsersFromJSON = async () => {
     try {
       const fileUri = `${FileSystem.documentDirectory}users.json`;
+
+      // Kiểm tra xem tệp JSON có tồn tại không
+      const fileExists = await FileSystem.getInfoAsync(fileUri);
+      if (!fileExists.exists) {
+        // Nếu tệp không tồn tại, tạo một mảng users rỗng và ghi vào tệp
+        const initialUsers = [];
+        await FileSystem.writeAsStringAsync(fileUri, JSON.stringify(initialUsers));
+        return initialUsers;
+      }
+
       const fileContent = await FileSystem.readAsStringAsync(fileUri);
-      const users = JSON.parse(fileContent);
+      let users = JSON.parse(fileContent);
+  
+      const adminIndex = users.findIndex(user => user.username === 'Admin');
+      if (adminIndex === -1) {
+        const adminUser = { username: 'Admin', password: '123' };
+        users.unshift(adminUser); 
+        await FileSystem.writeAsStringAsync(fileUri, JSON.stringify(users));
+      } else {
+        const adminUser = users.splice(adminIndex, 1)[0];
+        users.unshift(adminUser);
+      }
+  
       return users;
     } catch (error) {
       console.error('Lỗi khi đọc tệp JSON:', error);
@@ -46,6 +67,11 @@ const UserList = () => {
   };
 
   const handleDeleteUser = async (username) => {
+    if (username === 'Admin') {
+      Alert.alert('Không thể xoá tài khoản admin');
+      return;
+    }
+  
     const updatedUsers = await deleteUserFromJSON(username);
     setUsers(updatedUsers);
     Alert.alert('Xoá người dùng thành công');
@@ -59,19 +85,21 @@ const UserList = () => {
             <Text style={styles.username}>{user.username}</Text>
             <Text style={styles.password}>{user.password}</Text>
           </View>
-          <View style={styles.delete}>
-            <TouchableOpacity onPress={() => handleDeleteUser(user.username)}>
-              <View style={styles.button}>
-                <Text style={styles.text}>
-                  Xoá
-                </Text>
-              </View>
-            </TouchableOpacity>
-          </View>
+          {user.username !== 'Admin' && (
+            <View style={styles.delete}>
+              <TouchableOpacity onPress={() => handleDeleteUser(user.username)}>
+                <View style={styles.button}>
+                  <Text style={styles.text}>
+                    Xoá
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          )}
         </View>
       ))}
       <View style={styles.back}>
-        <TouchableOpacity onPress={(handleBack)}>
+        <TouchableOpacity onPress={handleBack}>
           <View style={styles.buttonback}>
             <Text style={styles.text}>
               Quay lại
