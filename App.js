@@ -14,6 +14,7 @@ import Intro from './Components/Account/Intro';
 import ISAccount from './Components/User/InsideSetting/ISAccount';
 import Signup from './Components/Account/Signup';
 import UserList from './Components/Account/UserList';
+import ISFixProfile from './Components/User/InsideSetting/InsideFixProfile/ISFixProfile';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -33,6 +34,7 @@ export default function App() {
         <Stack.Screen name="Signup" component={Signup} options={{headerShown:false}}/>
         <Stack.Screen name="UserList" component={UserList} options={{headerShown:false}}/>
         <Stack.Screen name="ISAccount" component={ISAccount} options={{headerShown:false}}/>
+        <Stack.Screen name="ISFixProfile" component={ISFixProfile} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -9,7 +9,7 @@ const Setting = () => {
         navigation.goBack();
     };
     const handleNothing = () => {
-        Alert.alert('Chưa làm được')
+        Alert.alert('Nothing in here')
     }
     const handleLogout = () => {
         Alert.alert(

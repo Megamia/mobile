@@ -9,7 +9,7 @@ const Chualam = () => {
     };
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Đã làm được gì đâu</Text>
+            <Text style={styles.text}>Nothing in here</Text>
             <TouchableOpacity style={styles.button} onPress={handleGoDone}>
                 <Text style={styles.buttonText}>Quay lại</Text>
             </TouchableOpacity>

@@ -9,7 +9,7 @@ const ISAccount = () => {
         navigation.goBack();
     };
     const handleNothing = () => {
-        Alert.alert('Chưa làm được')
+        Alert.alert('Nothing in here')
     }
     return (
         <View style={styles.container}>
@@ -21,7 +21,7 @@ const ISAccount = () => {
                     <Text style={styles.text}>Tài khoản</Text>
                 </View>
 
-                <TouchableOpacity onPress={() => navigation.navigate('Mychannel')}>
+                <TouchableOpacity onPress={() => navigation.navigate('ISFixProfile')}>
                     <View style={styles.viewfix}>
                         <View style={styles.viewtext1}>
                             <Text style={styles.textup}>

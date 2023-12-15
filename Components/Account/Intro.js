@@ -4,6 +4,9 @@ import { useNavigation } from '@react-navigation/native';
 
 const Intro = () => {
     const navigation = useNavigation();
+    const handleGoBack = () => {
+        navigation.goBack();
+      };
 
     return (
         <View style={styles.container}>
