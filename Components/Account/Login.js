@@ -96,7 +96,7 @@ const Login = () => {
             <View style={styles.viewtitle}>
                 <TouchableOpacity style={styles.icon} onPress={handleGoBack}>
                     <View style={styles.viewicon}>
-                        <Feather name="chevron-left" size={24} color="white" />
+                        <Feather name="chevron-left" size={30} color="white" />
                     </View>
                 </TouchableOpacity>
                 <Text style={styles.title}>

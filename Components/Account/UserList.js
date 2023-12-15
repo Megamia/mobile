@@ -23,18 +23,7 @@ const UserList = () => {
     try {
       const fileUri = `${FileSystem.documentDirectory}users.json`;
       const fileContent = await FileSystem.readAsStringAsync(fileUri);
-      let users = JSON.parse(fileContent);
-  
-      const adminIndex = users.findIndex(user => user.username === 'Admin');
-      if (adminIndex === -1) {
-        const adminUser = { username: 'Admin', password: '123' };
-        users.unshift(adminUser); 
-        await FileSystem.writeAsStringAsync(fileUri, JSON.stringify(users));
-      } else {
-        const adminUser = users.splice(adminIndex, 1)[0];
-        users.unshift(adminUser);
-      }
-  
+      const users = JSON.parse(fileContent);
       return users;
     } catch (error) {
       console.error('Lỗi khi đọc tệp JSON:', error);
@@ -57,11 +46,6 @@ const UserList = () => {
   };
 
   const handleDeleteUser = async (username) => {
-    if (username === 'Admin') {
-      Alert.alert('Không thể xoá tài khoản admin');
-      return;
-    }
-  
     const updatedUsers = await deleteUserFromJSON(username);
     setUsers(updatedUsers);
     Alert.alert('Xoá người dùng thành công');
@@ -75,21 +59,19 @@ const UserList = () => {
             <Text style={styles.username}>{user.username}</Text>
             <Text style={styles.password}>{user.password}</Text>
           </View>
-          {user.username !== 'Admin' && (
-            <View style={styles.delete}>
-              <TouchableOpacity onPress={() => handleDeleteUser(user.username)}>
-                <View style={styles.button}>
-                  <Text style={styles.text}>
-                    Xoá
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            </View>
-          )}
+          <View style={styles.delete}>
+            <TouchableOpacity onPress={() => handleDeleteUser(user.username)}>
+              <View style={styles.button}>
+                <Text style={styles.text}>
+                  Xoá
+                </Text>
+              </View>
+            </TouchableOpacity>
+          </View>
         </View>
       ))}
       <View style={styles.back}>
-        <TouchableOpacity onPress={handleBack}>
+        <TouchableOpacity onPress={(handleBack)}>
           <View style={styles.buttonback}>
             <Text style={styles.text}>
               Quay lại
