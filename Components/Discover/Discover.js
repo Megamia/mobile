@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, FlatList, Alert, Image } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, Image } from 'react-native';
 import NavTOP from '../Home/NavTOP';
 import { FontAwesome, Octicons } from '@expo/vector-icons';
 
@@ -56,7 +56,7 @@ const Discover = ({ navigation }) => {
         <ScrollView horizontal style={styles.ScrollView1} showsHorizontalScrollIndicator={false}>
         <View style={styles.viewbegin}/>
           {listchannel.map((item) => (
-            <TouchableOpacity key={item.id}  onPress={() => navigation.navigate(DTStream, { itemId: item.id })}>
+            <TouchableOpacity key={item.id}  onPress={() => navigation.navigate('DTStream', { itemId: item.id })}>
              <View style={styles.streamchannel}>
              <View>
                <Image
