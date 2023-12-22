@@ -1,17 +1,84 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Alert, Image } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { AntDesign, Ionicons, Entypo, Feather, FontAwesome5 } from '@expo/vector-icons';
 import { ScrollView } from 'react-native-gesture-handler';
+import * as ImagePicker from "expo-image-picker";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import IntroYS from './IntroYS';
 
-const ISFixProfile = () => {
-    const navigation = useNavigation();
+const ISFixProfile = ({ navigation, route }) => {
+    const value = route.params?.value || "";
     const handleBack = () => {
         navigation.goBack();
+    };
+    const handleDone = async () => {
+        try {
+            await AsyncStorage.setItem('selectedImage', selectedImage);
+            navigation.goBack();
+        } catch (error) {
+            console.log('Lỗi khi lưu trạng thái hình ảnh đã chọn:', error);
+        }
     };
     const handleNothing = () => {
         Alert.alert('Nothing in here')
     }
+    const [image, setImage] = useState(null);
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    useEffect(() => {
+        (async () => {
+            if (Platform.OS !== 'web') {
+                const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+                if (status !== 'granted') {
+                    alert('Quyền truy cập vào thư viện ảnh bị từ chối!');
+                }
+            }
+        })();
+    }, []);
+
+    const pickImage = async () => {
+        const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
+        if (status !== 'granted') {
+            alert('Quyền truy cập vào thư viện ảnh bị từ chối!');
+            return;
+        }
+
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
+        });
+
+        if (!result.canceled) {
+            const selectedAsset = result.assets[0];
+            updateSelectedImage(selectedAsset.uri);
+        }
+    };
+    useEffect(() => {
+        const restoreSelectedImage = async () => {
+            try {
+                const imageUri = await AsyncStorage.getItem('selectedImage');
+                if (imageUri !== null) {
+                    setSelectedImage(imageUri);
+                }
+            } catch (error) {
+                console.log('Lỗi khi khôi phục trạng thái hình ảnh:', error);
+            }
+        };
+
+        restoreSelectedImage();
+    }, []);
+
+    const updateSelectedImage = async (uri) => {
+        try {
+            await AsyncStorage.setItem('selectedImage', uri);
+            setSelectedImage(uri);
+        } catch (error) {
+            console.log('Lỗi khi lưu trạng thái hình ảnh:', error);
+        }
+    };
     return (
         <View style={styles.container}>
             <View style={styles.top}>
@@ -20,7 +87,7 @@ const ISFixProfile = () => {
                         <AntDesign name="left" size={24} color="white" />
                     </TouchableOpacity>
                     <Text style={styles.text}>Sửa hồ sơ</Text>
-                    <TouchableOpacity style={styles.buttonback} onPress={handleBack}>
+                    <TouchableOpacity style={styles.buttonback} onPress={handleDone}>
                         <Text style={styles.textDone}>
                             Xong
                         </Text>
@@ -35,12 +102,16 @@ const ISFixProfile = () => {
                                 <Text style={styles.TitleContent}>
                                     NHÃN HIỆU
                                 </Text>
-                                <TouchableOpacity onPress={handleNothing} style={styles.Brand}>
-                                    <View style={styles.ISContentTOPIcon}>
-                                        <View style={styles.IconBRAND}>
-                                            <Entypo name="user" size={60} color="white" />
+                                <TouchableOpacity onPress={pickImage} style={styles.Brand}>
+                                    {selectedImage ? (
+                                        <Image source={{ uri: selectedImage }} style={{ height: 250, width: '100%' }} />
+                                    ) : (
+                                        <View style={styles.ISContentTOPIcon}>
+                                            <View style={styles.IconBRAND}>
+                                                <Entypo name="user" size={60} color="white" />
+                                            </View>
                                         </View>
-                                    </View>
+                                    )}
                                     <View style={styles.ISContentBOT}>
 
                                         <View style={styles.ISISMid}>
@@ -66,7 +137,7 @@ const ISFixProfile = () => {
 
 
                                 </TouchableOpacity>
-                                <View style={[styles.Explain,styles.ExplainBRAND]}>
+                                <View style={[styles.Explain, styles.ExplainBRAND]}>
                                     <Text style={styles.ExplainTEXT}>
                                         Tùy chỉnh diện mạo của bản thân và của kênh trên Trixter.
                                     </Text>
@@ -77,17 +148,22 @@ const ISFixProfile = () => {
                                 <Text style={styles.TitleContent}>
                                     VỀ TRIXER
                                 </Text>
-                                <TouchableOpacity onPress={handleNothing} style={styles.Trixter}>
-                                    <View style={[styles.ISContentTOP, styles.ISContentBOT]}>
+                                <View style={[styles.ISContentTOP, styles.ISContentBOT]}>
+                                    <TouchableOpacity onPress={() => navigation.navigate('IntroYS')} style={styles.Trixter}>
                                         <View style={styles.ISISTop}>
                                             <View style={styles.Content}>
                                                 <Text style={styles.ISContentBOT_textup}>Giới thiệu bản thân</Text>
-                                                <Text style={styles.ISContentBOT_textdown} numberOfLines={1} ellipsizeMode="tail">Giới thiệu bản thân trong giới hạn 3 câu</Text>
+                                                <Text style={styles.ISContentBOT_textdown} numberOfLines={1} ellipsizeMode="tail">
+                                                    {value || "Giới thiệu bản thân trong giới hạn 3 câu"}
+                                                </Text>
                                             </View>
                                             <View style={styles.icon}>
                                                 <AntDesign name="right" size={24} color="white" />
                                             </View>
                                         </View>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={handleNothing} style={styles.Trixter}>
+
                                         <View style={styles.ISISMid}>
                                             <View style={styles.Content}>
                                                 <Text style={styles.ISContentBOT_textup}>Tên người dùng</Text>
@@ -97,6 +173,8 @@ const ISFixProfile = () => {
                                                 <AntDesign name="right" size={24} color="white" />
                                             </View>
                                         </View>
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={handleNothing} style={styles.Trixter}>
 
                                         <View style={styles.ISISBot}>
                                             <View style={styles.Content}>
@@ -107,8 +185,8 @@ const ISFixProfile = () => {
                                                 <AntDesign name="right" size={24} color="white" />
                                             </View>
                                         </View>
-                                    </View>
-                                </TouchableOpacity>
+                                    </TouchableOpacity>
+                                </View>
                             </View>
 
                             <View style={styles.contentSOCIAL}>
@@ -124,7 +202,7 @@ const ISFixProfile = () => {
                                         </View>
                                     </View>
                                 </TouchableOpacity>
-                                <View style={[styles.Explain,styles.ExplainSOCIAL]}>
+                                <View style={[styles.Explain, styles.ExplainSOCIAL]}>
                                     <Text style={styles.ExplainTEXT}>
                                         Thêm tối đa 5 đường liên kết mạng xã hội hiển thị trên hồ sơ kênh của bạn. Người xem cũng có ttheer tìm kiếm bạn theo cá chỉ dấu này.
                                     </Text>
@@ -133,8 +211,8 @@ const ISFixProfile = () => {
                         </View>
                     </ScrollView>
                 </View>
-            </View>
-        </View>
+            </View >
+        </View >
     );
 };
 
@@ -185,7 +263,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: 10
     },
-    ISISOnly:{
+    ISISOnly: {
 
     },
     CONTENT: {
@@ -259,8 +337,8 @@ const styles = StyleSheet.create({
         paddingRight: 20,
         paddingTop: 10,
     },
-    ExplainBRAND:{
-        marginRight:30,
+    ExplainBRAND: {
+        marginRight: 30,
     },
     ExplainTEXT: {
         color: 'gray',

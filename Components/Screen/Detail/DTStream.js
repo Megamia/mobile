@@ -61,10 +61,10 @@ const DTStream = () => {
     };
 
     const listchannel = [
-        { id: 1, userimg: require('../../assets/img/tenha-user.png'), username: 'Tenha', video: require('../../assets/gif/honkai-star-rail-combat-system-8.gif'), category: 'Honkai: Star Rail', content: 'HSR Genshin dailies and OW after', countview: '4.490', time: '39:10' },
-        { id: 2, userimg: require('../../assets/img/maichuxo-user.png'), username: 'maichuxo', video: require('../../assets/gif/minecraft.gif'), category: 'Minecraft', content: 'play minecraft with maichuxo and sing', countview: '1.690', time: '39:10' },
-        { id: 3, userimg: require('../../assets/img/Ayellol-user.png'), username: 'Ayellol', video: require('../../assets/gif/lol-lesin.gif'), category: 'League of Legends', content: '[DIA 16] AYEL KOREA ARC BOOTCA...', countview: '8.566', time: '39:10' },
-        { id: 4, userimg: require('../../assets/img/ProfessionalPridER.png'), username: 'ProfessionalPridER', video: require('../../assets/gif/genshincombat.gif'), category: 'Genshin Impact', content: 'Under the tree-eee-eee | !yt !disco...', countview: '3.449', time: '39:10' },
+        { id: 1, userimg: require('../../../assets/img/tenha-user.png'), username: 'Tenha', video: require('../../../assets/gif/honkai-star-rail-combat-system-8.gif'), category: 'Honkai: Star Rail', content: 'HSR Genshin dailies and OW after', countview: '4.490', time: '39:10' },
+        { id: 2, userimg: require('../../../assets/img/maichuxo-user.png'), username: 'maichuxo', video: require('../../../assets/gif/minecraft.gif'), category: 'Minecraft', content: 'play minecraft with maichuxo and sing', countview: '1.690', time: '39:10' },
+        { id: 3, userimg: require('../../../assets/img/Ayellol-user.png'), username: 'Ayellol', video: require('../../../assets/gif/lol-lesin.gif'), category: 'League of Legends', content: '[DIA 16] AYEL KOREA ARC BOOTCA...', countview: '8.566', time: '39:10' },
+        { id: 4, userimg: require('../../../assets/img/ProfessionalPridER.png'), username: 'ProfessionalPridER', video: require('../../../assets/gif/genshincombat.gif'), category: 'Genshin Impact', content: 'Under the tree-eee-eee | !yt !disco...', countview: '3.449', time: '39:10' },
     ];
 
 

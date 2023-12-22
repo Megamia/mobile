@@ -14,8 +14,9 @@ import Intro from './Components/Account/Intro';
 import ISAccount from './Components/User/InsideSetting/ISAccount';
 import Signup from './Components/Account/Signup';
 import UserList from './Components/Account/UserList';
-import DTStream from './Components/Detail/DTStream';
 import ISFixProfile from './Components/User/InsideSetting/InsideFixProfile/ISFixProfile';
+import DTStream from './Components/Screen/Detail/DTStream';
+import IntroYS from './Components/User/InsideSetting/InsideFixProfile/IntroYS';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -34,9 +35,10 @@ export default function App() {
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="Signup" component={Signup} options={{ headerShown: false }} />
         <Stack.Screen name="UserList" component={UserList} options={{ headerShown: false }} />
-        <Stack.Screen name="ISAccount" component={ISAccount} options={{ headerShown: false }} />
-        <Stack.Screen name="ISFixProfile" component={ISFixProfile} options={{ headerShown: false }} />
         <Stack.Screen name="DTStream" component={DTStream} options={{ headerShown: false }} />
+        <Stack.Screen name="ISFixProfile" component={ISFixProfile} options={{ headerShown: false }} />
+        <Stack.Screen name="IntroYS" component={IntroYS} options={{ headerShown: false }} />
+        <Stack.Screen name="ISAccount" component={ISAccount} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

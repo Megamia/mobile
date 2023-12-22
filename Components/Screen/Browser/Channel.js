@@ -8,7 +8,7 @@ const Channel = () => {
         <View style={styles.streamchannel}>
           <View>
             <Image
-              source={require('../../assets/gif/honkai-star-rail-combat-system-8.gif')}
+              source={require('../../../assets/gif/honkai-star-rail-combat-system-8.gif')}
               style={styles.videostream}
               resizeMode="cover"
             />
@@ -17,7 +17,7 @@ const Channel = () => {
           </View>
           <View style={styles.detail}>
             <Image
-              source={require('../../assets/img/tenha-user.png')}
+              source={require('../../../assets/img/tenha-user.png')}
               style={styles.imguser}
               resizeMode="cover"
             />
@@ -35,7 +35,7 @@ const Channel = () => {
         <View style={styles.streamchannel}>
           <View>
             <Image
-              source={require('../../assets/gif/minecraft.gif')}
+              source={require('../../../assets/gif/minecraft.gif')}
               style={styles.videostream}
               resizeMode="cover"
             />
@@ -44,7 +44,7 @@ const Channel = () => {
           </View>
           <View style={styles.detail}>
             <Image
-              source={require('../../assets/img/maichuxo-user.png')}
+              source={require('../../../assets/img/maichuxo-user.png')}
               style={styles.imguser}
               resizeMode="cover"
             />
@@ -63,7 +63,7 @@ const Channel = () => {
         <View style={styles.streamchannel}>
           <View>
             <Image
-              source={require('../../assets/gif/lol-lesin.gif')}
+              source={require('../../../assets/gif/lol-lesin.gif')}
               style={styles.videostream}
               resizeMode="cover"
             />
@@ -72,7 +72,7 @@ const Channel = () => {
           </View>
           <View style={styles.detail}>
             <Image
-              source={require('../../assets/img/Ayellol-user.png')}
+              source={require('../../../assets/img/Ayellol-user.png')}
               style={styles.imguser}
               resizeMode="cover"
             />
@@ -93,7 +93,7 @@ const Channel = () => {
         <View style={styles.streamchannel}>
           <View>
             <Image
-              source={require('../../assets/gif/genshincombat.gif')}
+              source={require('../../../assets/gif/genshincombat.gif')}
               style={styles.videostream}
               resizeMode="cover"
             />
@@ -102,7 +102,7 @@ const Channel = () => {
           </View>
           <View style={styles.detail}>
             <Image
-              source={require('../../assets/img/ProfessionalPridER.png')}
+              source={require('../../../assets/img/ProfessionalPridER.png')}
               style={styles.imguser}
               resizeMode="cover"
             />

@@ -1,10 +1,10 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome, Feather,Ionicons } from 'react-native-vector-icons';
-import Motinor from '../Motinor/Motinor';
-import Discover from '../Discover/Discover';
-import Search from '../Search/Search';
-import NavTOP2 from '../Browser/NavTOP2';
+import NavTOP2 from '../Screen/Browser/NavTOP2';
+import Motinor from './../Screen/Motinor/Motinor';
+import Search from './../Screen/Search/Search';
+import Discover from '../Screen/Discover/Discover';
 
 const Tab = createBottomTabNavigator();
 

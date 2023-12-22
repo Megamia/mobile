@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, Image } from 'react-native';
-import NavTOP from '../Home/NavTOP';
 import { FontAwesome, Octicons } from '@expo/vector-icons';
+import NavTOP from '../../Home/NavTOP';
 
 const Discover = ({ navigation }) => {
   const handlePress = () => {
@@ -16,17 +16,17 @@ const Discover = ({ navigation }) => {
   ];
 
   const listchannel = [
-    { id: 1, userimg: require('../../assets/img/tenha-user.png'), username: 'Tenha', video: require('../../assets/gif/honkai-star-rail-combat-system-8.gif'),category: 'Honkai: Star Rail', content: 'HSR Genshin dailies and OW after', countview: '4.490' },
-    { id: 2, userimg: require('../../assets/img/maichuxo-user.png'), username: 'maichuxo', video: require('../../assets/gif/minecraft.gif'),category: 'Minecraft', content: 'play minecraft with maichuxo and sing', countview: '1.690' },
-    { id: 3, userimg: require('../../assets/img/Ayellol-user.png'), username: 'Ayellol', video: require('../../assets/gif/lol-lesin.gif'),category: 'League of Legends', content: '[DIA 16] AYEL KOREA ARC BOOTCA...', countview: '8.566' },
-    { id: 4, userimg: require('../../assets/img/ProfessionalPridER.png'), username: 'ProfessionalPridER', video: require('../../assets/gif/genshincombat.gif'),category: 'Genshin Impact', content: 'Under the tree-eee-eee | !yt !disco...', countview: '3.449' },
+    { id: 1, userimg: require('../../../assets/img/tenha-user.png'), username: 'Tenha', video: require('../../../assets/gif/honkai-star-rail-combat-system-8.gif'),category: 'Honkai: Star Rail', content: 'HSR Genshin dailies and OW after', countview: '4.490' },
+    { id: 2, userimg: require('../../../assets/img/maichuxo-user.png'), username: 'maichuxo', video: require('../../../assets/gif/minecraft.gif'),category: 'Minecraft', content: 'play minecraft with maichuxo and sing', countview: '1.690' },
+    { id: 3, userimg: require('../../../assets/img/Ayellol-user.png'), username: 'Ayellol', video: require('../../../assets/gif/lol-lesin.gif'),category: 'League of Legends', content: '[DIA 16] AYEL KOREA ARC BOOTCA...', countview: '8.566' },
+    { id: 4, userimg: require('../../../assets/img/ProfessionalPridER.png'), username: 'ProfessionalPridER', video: require('../../../assets/gif/genshincombat.gif'),category: 'Genshin Impact', content: 'Under the tree-eee-eee | !yt !disco...', countview: '3.449' },
   ];
 
   const listcategory = [
-    { id: 1, image: require('../../assets/img/danhmuc/genshin.jpg'), name: 'Genshin Impact', countview: '15.285' },
-    { id: 2, image: require('../../assets/img/danhmuc/lol.jpg'), name: 'League Of Leg...', countview: '201.831' },
-    { id: 3, image: require('../../assets/img/danhmuc/cs2.png'), name: 'Counter-Strike 2', countview: '47.568' },
-    { id: 4, image: require('../../assets/img/danhmuc/valorant.png'), name: 'Valorant', countview: '79.717' },
+    { id: 1, image: require('../../../assets/img/danhmuc/genshin.jpg'), name: 'Genshin Impact', countview: '15.285' },
+    { id: 2, image: require('../../../assets/img/danhmuc/lol.jpg'), name: 'League Of Leg...', countview: '201.831' },
+    { id: 3, image: require('../../../assets/img/danhmuc/cs2.png'), name: 'Counter-Strike 2', countview: '47.568' },
+    { id: 4, image: require('../../../assets/img/danhmuc/valorant.png'), name: 'Valorant', countview: '79.717' },
   ];
 
   return (

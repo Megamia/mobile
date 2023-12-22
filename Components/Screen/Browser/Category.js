@@ -8,7 +8,7 @@ const Category = () => {
       <ScrollView style={styles.main}>
         <View style={styles.category}>
           <Image
-            source={require('../../assets/img/danhmuc/lol.jpg')}
+            source={require('../../../assets/img/danhmuc/lol.jpg')}
             style={styles.categoryimg}
             resizeMode="cover"
           />
@@ -24,7 +24,7 @@ const Category = () => {
         </View>
         <View style={styles.category}>
           <Image
-            source={require('../../assets/img/danhmuc/valorant.png')}
+            source={require('../../../assets/img/danhmuc/valorant.png')}
             style={styles.categoryimg}
             resizeMode="cover"
           />
@@ -39,7 +39,7 @@ const Category = () => {
         </View>
         <View style={styles.category}>
           <Image
-            source={require('../../assets/img/danhmuc/cs2.png')}
+            source={require('../../../assets/img/danhmuc/cs2.png')}
             style={styles.categoryimg}
             resizeMode="cover"
           />
@@ -54,7 +54,7 @@ const Category = () => {
         </View>
         <View style={styles.category}>
           <Image
-            source={require('../../assets/img/danhmuc/dota2.png')}
+            source={require('../../../assets/img/danhmuc/dota2.png')}
             style={styles.categoryimg}
             resizeMode="cover"
           />
@@ -70,7 +70,7 @@ const Category = () => {
         </View>
         <View style={styles.category}>
           <Image
-            source={require('../../assets/img/danhmuc/justtalk.jpg')}
+            source={require('../../../assets/img/danhmuc/justtalk.jpg')}
             style={styles.categoryimg}
             resizeMode="cover"
           />
@@ -84,7 +84,7 @@ const Category = () => {
         </View>
         <View style={styles.category}>
           <Image
-            source={require('../../assets/img/danhmuc/genshin.jpg')}
+            source={require('../../../assets/img/danhmuc/genshin.jpg')}
             style={styles.categoryimg}
             resizeMode="cover"
           />
@@ -100,7 +100,7 @@ const Category = () => {
         </View>
         <View style={styles.category}>
           <Image
-            source={require('../../assets/img/danhmuc/tft.png')}
+            source={require('../../../assets/img/danhmuc/tft.png')}
             style={styles.categoryimg}
             resizeMode="cover"
           />
@@ -115,7 +115,7 @@ const Category = () => {
         </View>
         <View style={styles.category}>
           <Image
-            source={require('../../assets/img/danhmuc/pubg.png')}
+            source={require('../../../assets/img/danhmuc/pubg.png')}
             style={styles.categoryimg}
             resizeMode="cover"
           />
@@ -130,7 +130,7 @@ const Category = () => {
         </View>
         <View style={styles.category}>
           <Image
-            source={require('../../assets/img/danhmuc/minecraft.jpg')}
+            source={require('../../../assets/img/danhmuc/minecraft.jpg')}
             style={styles.categoryimg}
             resizeMode="cover"
           />
@@ -147,7 +147,7 @@ const Category = () => {
         </View>
         <View style={styles.category}>
           <Image
-            source={require('../../assets/img/danhmuc/obionline.jpg')}
+            source={require('../../../assets/img/danhmuc/obionline.jpg')}
             style={styles.categoryimg}
             resizeMode="cover"
           />
@@ -163,7 +163,7 @@ const Category = () => {
         </View>
         <View style={styles.category}>
           <Image
-            source={require('../../assets/img/danhmuc/hsr.jpg')}
+            source={require('../../../assets/img/danhmuc/hsr.jpg')}
             style={styles.categoryimg}
             resizeMode="cover"
           />

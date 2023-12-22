@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, FlatList, TouchableOpacity,Alert } from 'react-native';
 import { Octicons } from '@expo/vector-icons';
-import NavTOP from '../Home/NavTOP';
+import NavTOP from '../../Home/NavTOP';
 
 const Motinor = ({ navigation }) => {
 
@@ -9,10 +9,10 @@ const Motinor = ({ navigation }) => {
     Alert.alert('Thông báo', 'Chưa làm');
   };
   const data = [
-    { id: 1, image: require('../../assets/img/danhmuc/genshin.jpg'), name: 'Genshin Impact', countview: '15.285' },
-    { id: 2, image: require('../../assets/img/danhmuc/lol.jpg'), name: 'League Of Leg...', countview: '201.831' },
-    { id: 3, image: require('../../assets/img/danhmuc/cs2.png'), name: 'Counter-Strike 2', countview: '47.568' },
-    { id: 4, image: require('../../assets/img/danhmuc/valorant.png'), name: 'Valorant', countview: '79.717' },
+    { id: 1, image: require('../../../assets/img/danhmuc/genshin.jpg'), name: 'Genshin Impact', countview: '15.285' },
+    { id: 2, image: require('../../../assets/img/danhmuc/lol.jpg'), name: 'League Of Leg...', countview: '201.831' },
+    { id: 3, image: require('../../../assets/img/danhmuc/cs2.png'), name: 'Counter-Strike 2', countview: '47.568' },
+    { id: 4, image: require('../../../assets/img/danhmuc/valorant.png'), name: 'Valorant', countview: '79.717' },
   ];
   const renderItem = ({ item }) => (
     <TouchableOpacity onPress={handlePress} >
@@ -42,7 +42,7 @@ const Motinor = ({ navigation }) => {
               <View style={styles.contentS}>
                 <View>
                   <Image
-                    source={require('../../assets/gif/valorantfun.gif')}
+                    source={require('../../../assets/gif/valorantfun.gif')}
                     style={styles.imglive}
                     resizeMode="cover"
                   />
@@ -52,7 +52,7 @@ const Motinor = ({ navigation }) => {
                 </View>
                 <View style={styles.detail}>
                   <View style={styles.user}>
-                    <Image source={require('../../assets/img/valorantuser.png')}
+                    <Image source={require('../../../assets/img/valorantuser.png')}
                       style={styles.imguser}
                       resizeMode="cover" />
                     <Text style={styles.username}>Valorant Esports</Text>
@@ -71,7 +71,7 @@ const Motinor = ({ navigation }) => {
               <View style={styles.contentS}>
                 <View>
                   <Image
-                    source={require('../../assets/gif/boxing.gif')}
+                    source={require('../../../assets/gif/boxing.gif')}
                     style={styles.imglive}
                     resizeMode="cover"
                   />
@@ -81,7 +81,7 @@ const Motinor = ({ navigation }) => {
                 </View>
                 <View style={styles.detail}>
                   <View style={styles.user}>
-                    <Image source={require('../../assets/img/ufc.png')}
+                    <Image source={require('../../../assets/img/ufc.png')}
                       style={styles.imguser}
                       resizeMode="cover" />
                     <Text style={styles.username} numberOfLines={1} ellipsizeMode="tail">Ultimate Fighting...</Text>
@@ -100,7 +100,7 @@ const Motinor = ({ navigation }) => {
             <View style={styles.contentS}>
               <View>
                 <Image
-                  source={require('../../assets/gif/genshinehehe.gif')}
+                  source={require('../../../assets/gif/genshinehehe.gif')}
                   style={styles.imglive}
                   resizeMode="cover"
                 />
@@ -110,7 +110,7 @@ const Motinor = ({ navigation }) => {
               </View>
               <View style={styles.detail}>
                 <View style={styles.user}>
-                  <Image source={require('../../assets/img/genshinuser.png')}
+                  <Image source={require('../../../assets/img/genshinuser.png')}
                     style={styles.imguser}
                     resizeMode="cover" />
                   <Text style={styles.username}>ベトアン</Text>
@@ -128,7 +128,7 @@ const Motinor = ({ navigation }) => {
               <View style={styles.contentS}>
                 <View>
                   <Image
-                    source={require('../../assets/gif/mukbang.gif')}
+                    source={require('../../../assets/gif/mukbang.gif')}
                     style={styles.imglive}
                     resizeMode="cover"
                   />
@@ -138,7 +138,7 @@ const Motinor = ({ navigation }) => {
                 </View>
                 <View style={styles.detail}>
                   <View style={styles.user}>
-                    <Image source={require('../../assets/img/mukbanguser.png')}
+                    <Image source={require('../../../assets/img/mukbanguser.png')}
                       style={styles.imguser}
                       resizeMode="cover" />
                     <Text style={styles.username}>Matty & Benny</Text>
@@ -176,7 +176,7 @@ const Motinor = ({ navigation }) => {
               <View style={styles.contentS}>
                 <View>
                   <Image
-                    source={require('../../assets/gif/honkai-star-rail-combat-system-8.gif')}
+                    source={require('../../../assets/gif/honkai-star-rail-combat-system-8.gif')}
                     style={styles.imglive}
                     resizeMode="cover"
                   />
@@ -186,7 +186,7 @@ const Motinor = ({ navigation }) => {
                 </View>
                 <View style={styles.detail}>
                   <View style={styles.user}>
-                    <Image source={require('../../assets/img/tenha-user.png')}
+                    <Image source={require('../../../assets/img/tenha-user.png')}
                       style={styles.imguser}
                       resizeMode="cover" />
                     <Text style={styles.username}>Tenha</Text>
@@ -205,7 +205,7 @@ const Motinor = ({ navigation }) => {
               <View style={styles.contentS}>
                 <View>
                   <Image
-                    source={require('../../assets/gif/minecraft.gif')}
+                    source={require('../../../assets/gif/minecraft.gif')}
                     style={styles.imglive}
                     resizeMode="cover"
                   />
@@ -215,7 +215,7 @@ const Motinor = ({ navigation }) => {
                 </View>
                 <View style={styles.detail}>
                   <View style={styles.user}>
-                    <Image source={require('../../assets/img/maichuxo-user.png')}
+                    <Image source={require('../../../assets/img/maichuxo-user.png')}
                       style={styles.imguser}
                       resizeMode="cover" />
                     <Text style={styles.username} numberOfLines={1} ellipsizeMode="tail">maichuxo</Text>
@@ -233,7 +233,7 @@ const Motinor = ({ navigation }) => {
               <View style={styles.contentS}>
                 <View>
                   <Image
-                    source={require('../../assets/gif/lol-lesin.gif')}
+                    source={require('../../../assets/gif/lol-lesin.gif')}
                     style={styles.imglive}
                     resizeMode="cover"
                   />
@@ -243,7 +243,7 @@ const Motinor = ({ navigation }) => {
                 </View>
                 <View style={styles.detail}>
                   <View style={styles.user}>
-                    <Image source={require('../../assets/img/Ayellol-user.png')}
+                    <Image source={require('../../../assets/img/Ayellol-user.png')}
                       style={styles.imguser}
                       resizeMode="cover" />
                     <Text style={styles.username}>Ayellol</Text>
@@ -263,7 +263,7 @@ const Motinor = ({ navigation }) => {
               <View style={styles.contentS}>
                 <View>
                   <Image
-                    source={require('../../assets/gif/genshincombat.gif')}
+                    source={require('../../../assets/gif/genshincombat.gif')}
                     style={styles.imglive}
                     resizeMode="cover"
                   />
@@ -273,7 +273,7 @@ const Motinor = ({ navigation }) => {
                 </View>
                 <View style={styles.detail}>
                   <View style={styles.user}>
-                    <Image source={require('../../assets/img/ProfessionalPridER.png')}
+                    <Image source={require('../../../assets/img/ProfessionalPridER.png')}
                       style={styles.imguser}
                       resizeMode="cover" />
                     <Text style={styles.username}>ProfessionalPridER</Text>

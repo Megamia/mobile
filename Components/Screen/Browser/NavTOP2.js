@@ -3,8 +3,7 @@ import { Text, View, Dimensions, StyleSheet } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import Category from './Category';
 import Channel from './Channel';
-import NavTOP from '../Home/NavTOP';
-
+import NavTOP from '../../Home/NavTOP';
 const Tab = createMaterialTopTabNavigator();
 
 const NavTOP2 = () => {
