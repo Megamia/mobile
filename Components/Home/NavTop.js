@@ -1,20 +1,42 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { Entypo, Feather, AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Stack = createStackNavigator();
 
 const NavTOP = () => {
     const navigation = useNavigation();
+    const [selectedImage, setSelectedImage] = useState(null);
 
+    useEffect(() => {
+        const restoreSelectedImage = async () => {
+            try {
+                const imageUri = await AsyncStorage.getItem('selectedImage');
+                if (imageUri !== null) {
+                    setSelectedImage(imageUri);
+                }
+            } catch (error) {
+                console.log('Lỗi khi khôi phục trạng thái hình ảnh:', error);
+            }
+        };
+
+        restoreSelectedImage();
+    }, []);
     return (
         <View style={styles.container}>
             <View style={styles.a}>
                 <TouchableOpacity onPress={() => navigation.navigate('Account')}>
                     <View style={styles.iconContainer}>
-                        <Entypo name="user" size={24} color="white" />
+                        <View style={styles.viewimg}>
+                            {selectedImage ? (
+                                <Image source={{ uri: selectedImage }} style={styles.img} />
+                            ) : (
+                                <Entypo name="user" size={24} color="white" />
+                            )}
+                        </View>
                     </View>
                 </TouchableOpacity>
             </View>
@@ -73,13 +95,21 @@ const styles = StyleSheet.create({
         height: 40
     },
     icon: {
-        marginHorizontal:10,
+        marginHorizontal: 10,
     },
     iconContainer: {
         backgroundColor: '#8304B2',
         borderRadius: 50,
-        padding: 6,
-        
+        // padding: 6,
+    },
+    viewimg: {
+        width: 50,
+        height: 50,
+    },
+    img: {
+        width: '100%',
+        height: '100%',
+        borderRadius: 50
     },
 });
 

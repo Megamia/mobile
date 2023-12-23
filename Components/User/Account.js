@@ -1,13 +1,38 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image,Alert } from 'react-native';
 import { Entypo, Feather, AntDesign, Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Account = () => {
   const navigation = useNavigation();
-  const handleDone = () => {
-    navigation.goBack();
-  };
+  const handleClick = () => {
+    Alert.alert('Chưa làm');
+}
+  const handleDone = async () => {
+    try {
+        await AsyncStorage.setItem('selectedImage', selectedImage);
+        navigation.goBack();
+    } catch (error) {
+        console.log('Lỗi khi lưu trạng thái hình ảnh đã chọn:', error);
+    }
+};
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  useEffect(() => {
+    const restoreSelectedImage = async () => {
+      try {
+        const imageUri = await AsyncStorage.getItem('selectedImage');
+        if (imageUri !== null) {
+          setSelectedImage(imageUri);
+        }
+      } catch (error) {
+        console.log('Lỗi khi khôi phục trạng thái hình ảnh:', error);
+      }
+    };
+
+    restoreSelectedImage();
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -22,14 +47,20 @@ const Account = () => {
 
         <View style={styles.name}>
           <View style={styles.iconContainer}>
-            <Entypo name="user" size={24} color="white" />
+            <View style={styles.viewimg}>
+              {selectedImage ? (
+                <Image source={{ uri: selectedImage }} style={styles.img} />
+              ) : (
+                <Entypo name="user" size={24} color="white" />
+              )}
+            </View>
           </View>
           <Text style={styles.text1}>
             Kiyosato Mei
           </Text>
         </View>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Mychannel')}>
+        <TouchableOpacity onPress={() => navigation.navigate('ISMychannel')}>
           <View style={styles.channel}>
             <View style={styles.iconContainer1}>
               <Entypo name="video-camera" size={24} color="white" />
@@ -40,7 +71,7 @@ const Account = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+        <TouchableOpacity onPress={(handleClick)} >
           <View style={styles.anothertop}>
             <View style={styles.iconContainer1}>
               <AntDesign name="staro" size={24} color="white" />
@@ -54,7 +85,7 @@ const Account = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Chualam')}>
+        <TouchableOpacity onPress={(handleClick)} >
           <View style={styles.anothermid}>
             <View style={styles.iconContainer1}>
               <Feather name="gift" size={24} color="white" />
@@ -211,7 +242,16 @@ const styles = StyleSheet.create({
   icon: {
     justifyContent: 'flex-end',
     marginRight: 20,
-  }
+  },
+  viewimg: {
+    width: 50,
+    height: 50,
+  },
+  img: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 50
+  },
 });
 
 export default Account;

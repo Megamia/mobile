@@ -1,15 +1,38 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Alert, Image } from "react-native";
 import { useNavigation } from "@react-navigation/core";
 import { AntDesign, Ionicons, Entypo, Feather } from '@expo/vector-icons';
+import Intro from './../Account/Intro';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Setting = () => {
     const navigation = useNavigation();
-    const handleBack = () => {
-        navigation.goBack();
+    const handleBack = async () => {
+        try {
+            await AsyncStorage.setItem('selectedImage', selectedImage);
+            navigation.goBack();
+        } catch (error) {
+            console.log('Lỗi khi lưu trạng thái hình ảnh đã chọn:', error);
+        }
     };
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    useEffect(() => {
+        const restoreSelectedImage = async () => {
+            try {
+                const imageUri = await AsyncStorage.getItem('selectedImage');
+                if (imageUri !== null) {
+                    setSelectedImage(imageUri);
+                }
+            } catch (error) {
+                console.log('Lỗi khi khôi phục trạng thái hình ảnh:', error);
+            }
+        };
+
+        restoreSelectedImage();
+    }, []);
     const handleNothing = () => {
-        Alert.alert('Nothing in here')
+        Alert.alert('Chưa làm');
     }
     const handleLogout = () => {
         Alert.alert(
@@ -23,7 +46,7 @@ const Setting = () => {
                 {
                     text: 'Đăng xuất',
                     onPress: () => {
-                        navigation.navigate('Main');
+                        navigation.navigate('Intro');
                     },
                 },
             ],
@@ -31,6 +54,7 @@ const Setting = () => {
         );
     };
 
+    
     return (
         <View style={styles.container}>
             <View style={styles.main}>

@@ -5,7 +5,6 @@ import { AntDesign, Ionicons, Entypo, Feather, FontAwesome5 } from '@expo/vector
 import { ScrollView } from 'react-native-gesture-handler';
 import * as ImagePicker from "expo-image-picker";
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import IntroYS from './IntroYS';
 
 const ISFixProfile = ({ navigation, route }) => {
     const value = route.params?.value || "";
@@ -21,7 +20,7 @@ const ISFixProfile = ({ navigation, route }) => {
         }
     };
     const handleNothing = () => {
-        Alert.alert('Nothing in here')
+        Alert.alert('Chưa làm')
     }
     const [image, setImage] = useState(null);
     const [selectedImage, setSelectedImage] = useState(null);
@@ -37,10 +36,10 @@ const ISFixProfile = ({ navigation, route }) => {
         })();
     }, []);
 
-    const pickImage = async () => {
+    const chooseImageFromLibrary = async () => {
         const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
         if (status !== 'granted') {
-            alert('Quyền truy cập vào thư viện ảnh bị từ chối!');
+            Alert.alert('Quyền truy cập vào thư viện ảnh bị từ chối!');
             return;
         }
 
@@ -55,6 +54,41 @@ const ISFixProfile = ({ navigation, route }) => {
             const selectedAsset = result.assets[0];
             updateSelectedImage(selectedAsset.uri);
         }
+    };
+
+    const takePhoto = async () => {
+        const { status } = await ImagePicker.requestCameraPermissionsAsync();
+        if (status !== 'granted') {
+            Alert.alert('Quyền truy cập vào máy ảnh bị từ chối!');
+            return;
+        }
+
+        let result = await ImagePicker.launchCameraAsync({
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
+        });
+
+        if (!result.canceled) {
+            const selectedAsset = result.assets[0];
+            updateSelectedImage(selectedAsset.uri);
+        }
+    };
+
+    const showOptions = () => {
+        Alert.alert(
+            'Chọn ảnh',
+            '',
+            [
+                { text: 'Chọn ảnh từ thư viện', onPress: chooseImageFromLibrary },
+                { text: 'Chụp ảnh', onPress: takePhoto },
+            ],
+            { cancelable: true }
+        );
+    };
+
+    const pickImage = async () => {
+        showOptions();
     };
     useEffect(() => {
         const restoreSelectedImage = async () => {
