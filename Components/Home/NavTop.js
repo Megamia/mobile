@@ -34,7 +34,7 @@ const NavTOP = () => {
                             {selectedImage ? (
                                 <Image source={{ uri: selectedImage }} style={styles.img} />
                             ) : (
-                                <Entypo name="user" size={24} color="white" />
+                                <Entypo name="user" size={32} color="white" />
                             )}
                         </View>
                     </View>
@@ -105,6 +105,8 @@ const styles = StyleSheet.create({
     viewimg: {
         width: 50,
         height: 50,
+        alignItems:'center',
+        justifyContent:'center'
     },
     img: {
         width: '100%',

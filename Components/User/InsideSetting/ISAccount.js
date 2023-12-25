@@ -6,7 +6,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ISAccount = () => {
     const navigation = useNavigation();
-    const handleBack = async () => {
+    const handleGoback = () =>{
+        navigation.goBack();
+    }
+    const handleDone = async () => {
         try {
             await AsyncStorage.setItem('selectedImage', selectedImage);
             navigation.goBack();
@@ -37,7 +40,7 @@ const ISAccount = () => {
         <View style={styles.container}>
             <View style={styles.main}>
                 <View style={styles.title}>
-                    <TouchableOpacity style={styles.buttonback} onPress={handleBack}>
+                    <TouchableOpacity style={styles.buttonback} onPress={handleGoback}>
                         <AntDesign name="left" size={24} color="white" />
                     </TouchableOpacity>
                     <Text style={styles.text}>Tài khoản</Text>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image,Alert } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
 import { Entypo, Feather, AntDesign, Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -8,15 +8,18 @@ const Account = () => {
   const navigation = useNavigation();
   const handleClick = () => {
     Alert.alert('Chưa làm');
-}
+  }
+  const handleGoBack = () => {
+    navigation.goBack();
+  }
   const handleDone = async () => {
     try {
-        await AsyncStorage.setItem('selectedImage', selectedImage);
-        navigation.goBack();
+      await AsyncStorage.setItem('selectedImage', selectedImage);
+      navigation.goBack();
     } catch (error) {
-        console.log('Lỗi khi lưu trạng thái hình ảnh đã chọn:', error);
+      console.log('Lỗi khi lưu trạng thái hình ảnh đã chọn:', error);
     }
-};
+  };
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
@@ -40,7 +43,7 @@ const Account = () => {
 
         <View style={styles.account}>
           <Text style={styles.text}>Tài khoản</Text>
-          <TouchableOpacity style={styles.button} onPress={handleDone}>
+          <TouchableOpacity style={styles.button} onPress={handleGoBack}>
             <Text style={styles.buttonText}>Xong</Text>
           </TouchableOpacity>
         </View>
@@ -51,7 +54,7 @@ const Account = () => {
               {selectedImage ? (
                 <Image source={{ uri: selectedImage }} style={styles.img} />
               ) : (
-                <Entypo name="user" size={24} color="white" />
+                <Entypo name="user" size={28} color="white" />
               )}
             </View>
           </View>
@@ -246,6 +249,8 @@ const styles = StyleSheet.create({
   viewimg: {
     width: 50,
     height: 50,
+    alignItems:'center',
+        justifyContent:'center'
   },
   img: {
     width: '100%',
